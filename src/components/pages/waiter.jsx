@@ -1,7 +1,10 @@
 import React from 'react';
-import NavBar from '../nav-footer/nav'
-import Footer from '../nav-footer/footer'
-import '../../styles/pages/waiter.css'
+import NavBar from '../nav-footer/nav';
+import Footer from '../nav-footer/footer';
+ import FbFunct from '../../fb-function'
+import '../../styles/pages/waiter.css';
+
+
 
 function Cocinero(props) {
   return (
@@ -55,6 +58,7 @@ function Cocinero(props) {
         </section>
         <div className = 'order'>
           *Aqui iran los productos para elegir*
+          <FbFunct />
         </div>
       </section>
       </section>
