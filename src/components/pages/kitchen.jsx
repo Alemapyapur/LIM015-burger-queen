@@ -1,7 +1,8 @@
 // import { Link } from 'react-router-dom'
 import React from 'react';
 import NavBar from '../nav-footer/nav'
-import Footer from '../nav-footer/footer'
+ // eslint-disable-next-line no-unused-vars
+ import GetProductsFirebase from '../../fb-function.js'
 import '../../styles/pages/kitchen.css'
 
 function Mesero() {
@@ -35,9 +36,9 @@ function Mesero() {
 
     {/* FOOTER DE LA PAGINA */}
       <div>
-        <Footer />
+      <GetProductsFirebase />  
       </div>
-
+        
     </>
   )
 }
