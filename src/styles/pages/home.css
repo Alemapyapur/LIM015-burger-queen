@@ -1,13 +1,31 @@
 .Home {
-    width: 100vw;
-    height: 100vh;
-    text-align: center;
-    background-color: #FEE253;
-  }
+  height: 100vh;
+  text-align: center;
+  background-image: url(../../img/inicio-bur.gif);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
-.Home-logo {
-  padding-top: 80px;
-  height: 60vmin;
+a {
+  text-decoration-line: none;
+  color:#b21515;
+}
+
+a:hover {
+  color: #e4fc10;
+}
+
+.btn-home {
+  display: flex;
+  flex-direction: column;
+  margin-left: 900px;
+  margin-top: 200px;
+  font-size: 30px;
+}
+
+.link-btn {
+  font-size: 30px;
 }
 
 .Home-btn {
@@ -17,7 +35,15 @@
   border-radius: 20px;
   border: none;
   font-size: 20px;
-  color: #ff0e0e;
-  box-shadow:4px 4px 4px rgba(0, 0, 0, 0.4);
+  background-color: #e4fc10;
+  color: #383030;
+  text-align: center;
+  box-shadow:3px 9px 0px 0px rgb(177 21 20);
   text-decoration: none;
 }
+
+.Home-btn:hover {
+  background-color: rgb(177 21 20);
+  box-shadow:3px 9px 0px 0px #313038;
+}
+
