@@ -5,12 +5,20 @@
 .navBar {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   width: 100%;
   padding: 10px 0px 10px 0px;
-  color:black;
-  font-size: .875rem;
+  font-size: 10px;
   text-align: center;
   left: 0px;
   bottom: 0;
-  background-color: #FEE253;
+  background-color: #e69f13;
+}
+
+.nav-logo {
+  width: 50px;
+}
+
+.title-nav {
+  font-size: 20px;
 }

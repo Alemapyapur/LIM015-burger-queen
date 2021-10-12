@@ -6,7 +6,7 @@ import '../../styles/pages/kitchen.css'
 
 function Mesero() {
     return (
-    <>
+    <div className="kitchen">
       {/* PARTE DE NAV */}
       <div>
         <NavBar />
@@ -28,7 +28,6 @@ function Mesero() {
 
       {/* PARTE DONDE INGRESA EL NOMBRE DEL CLIENTE Y EL NUMERO DE MESA */}
       <section>
-
         <button>COCINANDO</button>
         <button>PEDIDO LISTO</button>
       </section>
@@ -38,7 +37,7 @@ function Mesero() {
         <Footer />
       </div>
 
-    </>
+    </div>
   )
 }
 
