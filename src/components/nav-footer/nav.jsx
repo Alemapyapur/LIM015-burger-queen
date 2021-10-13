@@ -11,10 +11,10 @@ function NavBar ( ) {
         <Link className= "title-nav" to='/Home'>
           HOME
         </Link>
-        <Link className= "title-nav" to='/Cocinero'>
+        <Link className= "title-nav" to='/Kitchen'>
           PEDIDOS REALIZADOS
         </Link>
-        <Link className= "title-nav" to='/Mesero'>
+        <Link className= "title-nav" to='/Waiter'>
           PEDIDOS ENTREGADOS
         </Link>
       </nav>

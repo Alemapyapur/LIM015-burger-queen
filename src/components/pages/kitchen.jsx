@@ -4,7 +4,7 @@ import NavBar from '../nav-footer/nav'
 import Footer from '../nav-footer/footer'
 import '../../styles/pages/kitchen.css'
 
-function Mesero() {
+function Kitchen() {
     return (
     <div className="kitchen">
       {/* PARTE DE NAV */}
@@ -41,4 +41,4 @@ function Mesero() {
   )
 }
 
-export default Mesero;
+export default Kitchen;

@@ -12,12 +12,12 @@ function Home() {
       <br/>
       <div className='btn-home'>
       <button className="Home-btn">
-        <Link className="link-btn" to='/Mesero'>
+        <Link className="link-btn" to='/Waiter'>
           Mesero
         </Link>
         </button>
       <button className="Home-btn">
-        <Link className="link-btn" to='/Cocinero'>
+        <Link className="link-btn" to='/Kitchen'>
           Cocinero
         </Link>
       </button>

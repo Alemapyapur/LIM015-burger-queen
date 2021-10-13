@@ -92,7 +92,7 @@
   border-radius: 10px;
 }
 
-.btn--order {
+/* .btn--order {
   display: flex;
   width: 80px;
   justify-content: space-between;
@@ -119,4 +119,4 @@
   background-color: #e69f13a8;
   border-radius: 20px;
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
-}
+} */
