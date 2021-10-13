@@ -1,8 +1,9 @@
 // import { Link } from 'react-router-dom'
 import React from 'react';
 import NavBar from '../nav-footer/nav'
-import Footer from '../nav-footer/footer'
+// import Footer from '../nav-footer/footer'
 import '../../styles/pages/kitchen.css'
+import GetProductsFirebase from '../menu/Listproduct.jsx'
 
 function Mesero() {
     return (
@@ -34,7 +35,7 @@ function Mesero() {
 
     {/* FOOTER DE LA PAGINA */}
       <div>
-        <Footer />
+        <GetProductsFirebase />
       </div>
 
     </div>

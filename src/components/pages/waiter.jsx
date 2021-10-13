@@ -1,9 +1,9 @@
 // import React, { useEffect, useState } from 'react';
 import React from 'react';
-import NavBar from '../nav-footer/nav';
-import Footer from '../nav-footer/footer';
+import NavBar from '../nav-footer/nav.jsx';
+import Footer from '../nav-footer/footer.jsx';
 // import ListProduct from '../menu/Listproduct';
-import GetProductsFirebase from '../menu/Listproduct'
+import GetProductsFirebase from '../menu/Listproduct.jsx'
 import ImgProduct from '../../img/breakfast1.png';
 // import firebaseApp from '../../fb-config';
 // import { getFirestore, getDoc } from 'firebase/firestore';
@@ -12,7 +12,7 @@ import '../../styles/pages/waiter.css'
 
 // const firestore = getFirestore(firebaseApp)
 
-function Cocinero(props) {
+function Cocinero() {
   // const [arrayProductList,setArrayProduct] = useState()
   // const fakeData = [
   //   {id: 1, name: "Cafe americano", price: 7},
@@ -50,20 +50,6 @@ function Cocinero(props) {
         <NavBar />
       </div>
 
-      {/* PARTE DE MENU POR SECCIONES
-      creo que debe ir en otro jsx como en el nav */}
-
-      {/* <nav className='menu-orden'>
-        <li className='orden-breakfasr' onClick={props.home}>
-          BREAKFAST
-        </li>
-        <li className='orden-lunch' onClick={props.kitchen}>
-          LUNCH
-        </li>
-        <li className='orden-drink' onClick={props.waiter}>
-          DRINKS
-        </li>
-      </nav> */}
 
       {/* PARTE DONDE INGRESA EL NOMBRE DEL CLIENTE Y EL NUMERO DE MESA */}
       <section className = 'padre'>

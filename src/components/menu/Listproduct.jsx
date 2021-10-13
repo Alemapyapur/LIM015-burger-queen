@@ -25,8 +25,6 @@
 // *--------------------------CONFIGURACION--------------------------------------*
 
 import { db } from '../../fb-config';
-// import firebaseApp from "../../fb-config";
-/* import { firebase } from "firebase/app"; */
 import { collection, getDocs } from "firebase/firestore";
 
 const GetProductsFirebase = async () => {
@@ -37,7 +35,7 @@ const GetProductsFirebase = async () => {
   const querySnapshot = await getDocs(collection(db, "product"));
   querySnapshot.forEach((doc) => {
     // doc.data() is never undefined for query doc snapshots
-    console.log(doc.id, " => ", doc.data());
+    console.log(doc.id, " => ", doc.data(doc.name));
   });
 
   return <div>{'hola'}</div>;
