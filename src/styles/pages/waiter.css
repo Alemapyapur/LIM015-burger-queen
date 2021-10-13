@@ -13,9 +13,9 @@
 }
 
 .order {
-  border: black 2px solid;
+  border: #00000033 2px solid;
   height: 20vmax;
-  background-color: cornsilk;
+  background-color: #fee253;
 }
 
 .btn-send-order {
@@ -89,9 +89,18 @@
 
 .img-product {
   width: 100px;
+  border-radius: 10px;
 }
+
+.btn--order {
+  display: flex;
+  width: 80px;
+  justify-content: space-between;
+}
+
 .order-container-list {
   display: flex;
+  justify-content: space-evenly;
 }
 
 .order-container {

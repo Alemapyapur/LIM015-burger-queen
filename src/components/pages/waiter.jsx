@@ -2,9 +2,10 @@
 import React from 'react';
 import NavBar from '../nav-footer/nav';
 import Footer from '../nav-footer/footer';
-// import ListProduct from '../menu/Listproduct';
-import GetProductsFirebase from '../menu/Listproduct'
-import ImgProduct from '../../img/breakfast1.png';
+import ListProduct from '../menu/Listproduct';
+// import GetProductsFirebase from '../menu/Listproduct'
+import ImgProduct01 from '../../img/cafecito.PNG';
+import ImgProduct02 from '../../img/americano.PNG';
 // import firebaseApp from '../../fb-config';
 // import { getFirestore, getDoc } from 'firebase/firestore';
 import '../../styles/pages/waiter.css'
@@ -14,11 +15,11 @@ import '../../styles/pages/waiter.css'
 
 function Cocinero(props) {
   // const [arrayProductList,setArrayProduct] = useState()
-  // const fakeData = [
-  //   {id: 1, name: "Cafe americano", price: 7},
-  //   {id: 2, name: "Cafe con Leche", price: 5},
-  //   {id: 3, name: "Cafe frapuchino", price: 7},
-  // ];
+  const fakeData = [
+    {id: 1, name: "Cafe con Leche", price: 7},
+    {id: 2, name: "Cafe americano", price: 5},
+    {id: 3, name: "Cafe frapuchino", price: 7},
+  ];
 
   // async function buscarLista(idLista) {
   //   // eslint-disable-next-line no-undef
@@ -82,13 +83,13 @@ function Cocinero(props) {
         <div className='order'>
           *Aqui iran dinamicamente los pedidos(cambiar los div por otro elemento)*
           <div>
-            {/* <ListProduct arrayproductos={fakeData}/> */}
-            <GetProductsFirebase />
+            <ListProduct arrayproductos={fakeData}/>
+            {/* <GetProductsFirebase /> */}
           </div>
         </div>
         <div className="btn-send-order">
-          <button className="btn-order-green">ENVIAR A LA COCINA</button>
           <button className="btn-order-red">CANCELAR PEDIDO</button>
+          <button className="btn-order-green">ENVIAR A LA COCINA</button>
         </div>
       </section>
       {/*AGREGADO 10/10 */}
@@ -100,22 +101,24 @@ function Cocinero(props) {
           <button className="btn-roder-waiter">BEBIDAS</button>
         </section>
         <div className="order-container-list">
-          *Aqui iran los productos para elegir*
+          {/* *Aqui iran los productos para elegir* */}
           <div className="order-container">
-              <h3>Dinero</h3>
-              <img className="img-product" src={ImgProduct} alt="" />
-              <h2>Cafe americano</h2>
+              <h3>S/ 7.00</h3>
+              <img className="img-product" src={ImgProduct01} alt="" />
+              <h2>Cafe con Leche</h2>
               <div className="btn--order">
                 <button className="btn-order-container">+</button>
+                <h2>0</h2>
                 <button className="btn-order-container">-</button>
               </div>
           </div>
           <div className="order-container">
-              <h3>Dinero</h3>
-              <img className="img-product" src={ImgProduct} alt="" />
-              <h2>Cafe con leche</h2>
+              <h3>S/ 5.00</h3>
+              <img className="img-product" src={ImgProduct02} alt="" />
+              <h2>Cafe Americano</h2>
               <div className="btn--order">
                 <button className="btn-order-container">+</button>
+                <h2>0</h2>
                 <button className="btn-order-container">-</button>
               </div>
           </div>
