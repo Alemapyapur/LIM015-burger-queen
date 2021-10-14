@@ -53,18 +53,7 @@ function Waiter() {
 
         <div className='order'>
           {/* *Aqui iran dinamicamente los pedidos(cambiar los div por otro elemento)* */}
-          <div>
 
-              {arrayProductList.map((item, index) => {
-                return (
-                  <div key={index}>
-                    <p className="">{item}</p>
-                  </div>
-                )
-              })}
-
-
-          </div>
         </div>
         <div className="btn-send-order">
           <button className="btn-order-red">CANCELAR PEDIDO</button>
@@ -79,6 +68,18 @@ function Waiter() {
             <button className="btn-roder-waiter">ACOMPAÑAMIENTOS</button>
             <button className="btn-roder-waiter">BEBIDAS</button>
           </section>
+
+          <div>
+
+            {arrayProductList.map((item, index) => {
+              return (
+                <div key={index}>
+                  <p className="">{item}</p>
+                </div>
+              )
+            })}
+
+          </div>
         </section>
       </section>
 
