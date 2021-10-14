@@ -1,13 +1,12 @@
 // import { Link } from 'react-router-dom'
 import React from 'react';
 import NavBar from '../nav-footer/nav'
- // eslint-disable-next-line no-unused-vars
- import GetProductsFirebase from '../../fb-function.js'
+import Footer from '../nav-footer/footer'
 import '../../styles/pages/kitchen.css'
 
-function Mesero() {
+function Kitchen() {
     return (
-    <>
+    <div className="kitchen">
       {/* PARTE DE NAV */}
       <div>
         <NavBar />
@@ -29,18 +28,17 @@ function Mesero() {
 
       {/* PARTE DONDE INGRESA EL NOMBRE DEL CLIENTE Y EL NUMERO DE MESA */}
       <section>
-
         <button>COCINANDO</button>
         <button>PEDIDO LISTO</button>
       </section>
 
     {/* FOOTER DE LA PAGINA */}
       <div>
-      <GetProductsFirebase />  
+        <Footer />
       </div>
-        
-    </>
+
+    </div>
   )
 }
 
-export default Mesero;
+export default Kitchen;

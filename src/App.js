@@ -4,18 +4,18 @@ import './App.css';
 // import hamburguesa from './img/hamburguesa.jpg'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Home from './components/pages/home.jsx'
-import Cocinero from './components/pages/kitchen.jsx'
-import Mesero from './components/pages/waiter.jsx'
+import Kitchen from './components/pages/kitchen.jsx'
+import Waiter from './components/pages/waiter.jsx'
 
 const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path='/cocinero'>
-          <Cocinero />
+        <Route path='/Kitchen'>
+          <Kitchen />
         </Route>
-        <Route path='/mesero'>
-          <Mesero />
+        <Route path='/Waiter'>
+          <Waiter />
         </Route>
         <Route path='/'>
           <Home />
