@@ -1,9 +1,8 @@
 // import { Link } from 'react-router-dom'
 import React from 'react';
 import NavBar from '../nav-footer/nav'
-// import Footer from '../nav-footer/footer'
+import Footer from '../nav-footer/footer'
 import '../../styles/pages/kitchen.css'
-import GetProductsFirebase from '../menu/Listproduct.jsx'
 
 function Kitchen() {
     return (
@@ -35,7 +34,7 @@ function Kitchen() {
 
     {/* FOOTER DE LA PAGINA */}
       <div>
-        <GetProductsFirebase />
+        <Footer />
       </div>
 
     </div>
