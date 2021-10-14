@@ -13,7 +13,6 @@ function Waiter() {
     const arrayProduct = [];
     const querySnapshot = await getDocs(collection(db, "product"));
     querySnapshot.forEach((doc) => {
-      console.log(doc.id, " => ", doc.data());
       arrayProduct.push(doc.id, " => ", doc.data())
     });
 
@@ -67,6 +66,7 @@ function Waiter() {
             <button className="btn-roder-waiter">ACOMPAÑAMIENTOS</button>
             <button className="btn-roder-waiter">BEBIDAS</button>
           </section>
+
           <div>
 
             {arrayProductList.map((item, index) => {
@@ -74,11 +74,10 @@ function Waiter() {
                 <div key={index}>
                   <p className="">{item.name}</p>
                   <p className="">{item.price}</p>
+
                 </div>
               )
             })}
-
-
           </div>
         </section>
       </section>
