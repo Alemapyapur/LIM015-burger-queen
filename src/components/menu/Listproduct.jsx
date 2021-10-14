@@ -42,3 +42,5 @@ const GetProductsFirebase = async () => {
 };
 
 export default GetProductsFirebase;
+
+
