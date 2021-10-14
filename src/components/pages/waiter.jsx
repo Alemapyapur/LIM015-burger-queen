@@ -1,46 +1,33 @@
-// import React, { useEffect, useState } from 'react';
-import React from 'react';
-import NavBar from '../nav-footer/nav.jsx';
-import Footer from '../nav-footer/footer.jsx';
-// import ListProduct from '../menu/Listproduct';
-import GetProductsFirebase from '../menu/Listproduct.jsx'
-import ImgProduct from '../../img/breakfast1.png';
-// import firebaseApp from '../../fb-config';
-// import { getFirestore, getDoc } from 'firebase/firestore';
+import React, { useEffect, useState } from 'react';
+import NavBar from '../nav-footer/nav';
+import Footer from '../nav-footer/footer';
+import { db } from '../../fb-config';
+import { collection, getDocs } from "firebase/firestore";
 import '../../styles/pages/waiter.css'
 
 
-// const firestore = getFirestore(firebaseApp)
+function Waiter() {
+  const [arrayProductList,setArrayProduct] = useState([])
 
-function Cocinero() {
-  // const [arrayProductList,setArrayProduct] = useState()
-  // const fakeData = [
-  //   {id: 1, name: "Cafe americano", price: 7},
-  //   {id: 2, name: "Cafe con Leche", price: 5},
-  //   {id: 3, name: "Cafe frapuchino", price: 7},
-  // ];
+  const getProductsFirebase = async () => {
+    const arrayProduct = [];
+    const querySnapshot = await getDocs(collection(db, "product"));
+    querySnapshot.forEach((doc) => {
+      console.log(doc.id, " => ", doc.data());
+      arrayProduct.push(doc.id)
+    });
 
-  // async function buscarLista(idLista) {
-  //   // eslint-disable-next-line no-undef
-  //   const docRef = doc(firestore, `product/$(idLista)`);
+    return arrayProduct;
+  };
 
-  //   const consulta = await getDoc(docRef);
-
-  //   if (consulta.exists()) {
-  //     const infoDoc = consulta.data();
-  //     console.log(infoDoc);
-  //     return infoDoc.product003;
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   async function fetchList() {
-  //     const productFetch = await buscarLista();
-  //     setArrayProduct(productFetch);
-  //   }
-
-  //   fetchList();
-  // } , [])
+  useEffect(() => {
+    async function fetchList() {
+      const listMenu = await getProductsFirebase()
+      console.log(listMenu);
+      setArrayProduct(listMenu);
+    }
+    fetchList();
+  } , [])
 
   return (
 
@@ -50,10 +37,9 @@ function Cocinero() {
         <NavBar />
       </div>
 
-
       {/* PARTE DONDE INGRESA EL NOMBRE DEL CLIENTE Y EL NUMERO DE MESA */}
       <section className = 'padre'>
-      <section className = 'temp-waiter side'>
+        <section className = 'temp-waiter side'>
         <div>
           <section className='dataClient'>
             <p>NOMBRE DEL CLIENTE:</p>
@@ -66,47 +52,34 @@ function Cocinero() {
         </div>
 
         <div className='order'>
-          *Aqui iran dinamicamente los pedidos(cambiar los div por otro elemento)*
+          {/* *Aqui iran dinamicamente los pedidos(cambiar los div por otro elemento)* */}
           <div>
-            {/* <ListProduct arrayproductos={fakeData}/> */}
-            <GetProductsFirebase />
+
+              {arrayProductList.map((item, index) => {
+                return (
+                  <div key={index}>
+                    <p className="">{item}</p>
+                  </div>
+                )
+              })}
+
+
           </div>
         </div>
         <div className="btn-send-order">
-          <button className="btn-order-green">ENVIAR A LA COCINA</button>
           <button className="btn-order-red">CANCELAR PEDIDO</button>
+          <button className="btn-order-green">ENVIAR A LA COCINA</button>
         </div>
-      </section>
-      {/*AGREGADO 10/10 */}
-      <section className = 'temp-waiter'>
-        <section className="btn-order">
-          <button className="btn-roder-waiter">DESAYUNOS</button>
-          <button className="btn-roder-waiter">HAMBURGUESAS</button>
-          <button className="btn-roder-waiter">ACOMPAÑAMIENTOS</button>
-          <button className="btn-roder-waiter">BEBIDAS</button>
         </section>
-        <div className="order-container-list">
-          *Aqui iran los productos para elegir*
-          <div className="order-container">
-              <h3>Dinero</h3>
-              <img className="img-product" src={ImgProduct} alt="" />
-              <h2>Cafe americano</h2>
-              <div className="btn--order">
-                <button className="btn-order-container">+</button>
-                <button className="btn-order-container">-</button>
-              </div>
-          </div>
-          <div className="order-container">
-              <h3>Dinero</h3>
-              <img className="img-product" src={ImgProduct} alt="" />
-              <h2>Cafe con leche</h2>
-              <div className="btn--order">
-                <button className="btn-order-container">+</button>
-                <button className="btn-order-container">-</button>
-              </div>
-          </div>
-        </div>
-      </section>
+        {/*AGREGADO 10/10 */}
+        <section className = 'temp-waiter'>
+          <section className="btn-order">
+            <button className="btn-roder-waiter">DESAYUNOS</button>
+            <button className="btn-roder-waiter">HAMBURGUESAS</button>
+            <button className="btn-roder-waiter">ACOMPAÑAMIENTOS</button>
+            <button className="btn-roder-waiter">BEBIDAS</button>
+          </section>
+        </section>
       </section>
 
     {/* FOOTER DE LA PAGINA */}
@@ -118,5 +91,5 @@ function Cocinero() {
   )
 };
 
-export default Cocinero;
+export default Waiter;
 
