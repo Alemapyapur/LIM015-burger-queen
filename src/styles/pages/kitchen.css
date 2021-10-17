@@ -8,4 +8,56 @@
 }
 
 
+.order-kitchen {
+  display: flex;
+  align-content: space-between;
+  border: #00000033 2px solid;
+  height: 450px;
+  width: 500px;
+  background-color: #fee253;
+  justify-content: space-evenly;
+  
+}
 
+/* .padre-kitchen {
+  display: flex;
+  justify-content: flex-end;
+
+  height: 100%;
+} */
+.temp-kitchen {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin-top: 20px;
+  
+}
+
+.ordertwo-kitchen{
+  display: flex;
+  align-content: space-between;
+  border: #00000033 2px solid;
+  height: 450px;
+  width: 500px;
+  background-color:#fee253;
+  justify-content: space-evenly;
+  
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+  
+}
+
+.btn-order-green, .btn-order-red{
+  display: flex;
+	flex-direction:row-reverse;
+	justify-content:flex-end;
+}
+
+.orden-kitchen-btn{
+  padding-top: 380px;
+}

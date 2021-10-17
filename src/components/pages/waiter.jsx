@@ -20,8 +20,13 @@ function Waiter() {
     const arrayProduct = [];
     const querySnapshot = await getDocs(collection(db, "product"));
     querySnapshot.forEach((doc) => {
+<<<<<<< HEAD
       // arrayProduct.push(doc.id, " => ", doc.data())
       arrayProduct.push(doc.data())
+=======
+      // console.log(doc.id, " => ", doc.data());
+      arrayProduct.push(doc.data());
+>>>>>>> c1d783dc71de783cd960c5d8112ee81ebb6be953
     });
 
     return arrayProduct;
@@ -57,7 +62,18 @@ function Waiter() {
               <input type='text' className='text' />
             </section>
           </div>
+        </section>
+              {arrayProductList.map((item, index) => {
+                return (
+                  <div key={index}>
+                    <p className="">{item.id}</p>
+                    <p className="">{item.name}</p>
+                  </div>
+                )
+              })}
 
+
+            <section>
           <div className='order'>
             {/* *Aqui iran dinamicamente los pedidos(cambiar los div por otro elemento)* */}
             <OrderWaiter />
