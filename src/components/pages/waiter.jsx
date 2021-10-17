@@ -13,7 +13,8 @@ function Waiter() {
     const arrayProduct = [];
     const querySnapshot = await getDocs(collection(db, "product"));
     querySnapshot.forEach((doc) => {
-      arrayProduct.push(doc.id, " => ", doc.data())
+      // console.log(doc.id, " => ", doc.data());
+      arrayProduct.push(doc.data());
     });
 
     return arrayProduct;
@@ -49,7 +50,18 @@ function Waiter() {
               <input type='text' className='text' />
             </section>
           </div>
+        </section>
+              {arrayProductList.map((item, index) => {
+                return (
+                  <div key={index}>
+                    <p className="">{item.id}</p>
+                    <p className="">{item.name}</p>
+                  </div>
+                )
+              })}
 
+
+            <section>
           <div className='order'>
             {/* *Aqui iran dinamicamente los pedidos(cambiar los div por otro elemento)* */}
           </div>
