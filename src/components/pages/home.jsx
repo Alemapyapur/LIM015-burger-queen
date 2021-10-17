@@ -1,16 +1,19 @@
 import React from 'react';
+import app from '../../fb-config'
 import { Link } from 'react-router-dom'
-// import melissa from '../../img/inicio-bur.gif';
 import '../../styles/pages/home.css'
+import { getAuth, signOut } from "firebase/auth";
+
+const auth = getAuth(app);
 
 function Home() {
   return (
     <div className="Home">
-      {/* <p>Burguer Queen</p> */}
-      {/* <img src={melissa} className='Home-logo' alt='Burguer Queen Logo'/> */}
-      {/* <section style={ melissa } className='Home-logo'>  </section> */}
       <br/>
       <div className='btn-home'>
+
+      <button onClick={() => signOut (auth)}>Cerrar sesión</button>
+
       <button className="Home-btn">
         <Link className="link-btn" to='/Waiter'>
           Mesero
