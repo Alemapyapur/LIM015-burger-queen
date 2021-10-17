@@ -20,13 +20,8 @@ function Waiter() {
     const arrayProduct = [];
     const querySnapshot = await getDocs(collection(db, "product"));
     querySnapshot.forEach((doc) => {
-<<<<<<< HEAD
       // arrayProduct.push(doc.id, " => ", doc.data())
       arrayProduct.push(doc.data())
-=======
-      // console.log(doc.id, " => ", doc.data());
-      arrayProduct.push(doc.data());
->>>>>>> c1d783dc71de783cd960c5d8112ee81ebb6be953
     });
 
     return arrayProduct;
