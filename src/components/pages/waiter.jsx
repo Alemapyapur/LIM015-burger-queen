@@ -22,9 +22,9 @@ function Waiter() {
     const arrayProduct = [];
     const querySnapshot = await getDocs(query(collection(db, "products"),where("type", "==", type)));
     querySnapshot.forEach((doc) => {
-      // arrayProduct.push(doc.id, " => ", doc.data())
       arrayProduct.push(doc.data());
     });
+
     return arrayProduct;
   };
 
@@ -72,23 +72,23 @@ function Waiter() {
         {/*AGREGADO 10/10 */}
         <section className="temp-waiter">
           <section className="btn-order">
-          <button className="btn-roder-waiter" onClick={()=>setType('breakfast')}>DESAYUNOS</button>
+            <button className="btn-roder-waiter" onClick={()=>setType('breakfast')}>DESAYUNOS</button>
             {/* <button className="btn-roder-waiter" value='lunch' onClick={(e)=>setType(e.target.value)}>HAMBURGUESAS</button> */}
             <button className="btn-roder-waiter" onClick={()=>setType('lunch')}>HAMBURGUESAS</button>
             <button className="btn-roder-waiter" onClick={()=>setType('breakfast')}>ACOMPAÑAMIENTOS</button>
             <button className="btn-roder-waiter" onClick={()=>setType('lunch')}>BEBIDAS</button>
-
           </section>
 
           <div className="order-container-list">
             {arrayProductList.map((item, index) => {
+              console.log('type', type);
               return (
                 <div className="order-container" key={index}>
                   <p className="">S/. {item.price}.00</p>
                   <img className="img-product" src={item.URL}></img>
                   <p className="">{item.name}</p>
                   <div className="btn--order">
-                  <button className="btn-order-container-less" onClick={lessClick}> - </button>
+                    <button className="btn-order-container-less" onClick={lessClick}> - </button>
                     <p>{contador}</p>
                     <button className="btn-order-container-more" onClick={moreClick}> + </button>
                   </div>
