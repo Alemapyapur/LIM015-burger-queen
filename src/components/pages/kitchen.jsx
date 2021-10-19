@@ -1,44 +1,46 @@
 // import { Link } from 'react-router-dom'
-import React from 'react';
-import NavBar from '../nav-footer/nav'
-import Footer from '../nav-footer/footer'
-import '../../styles/pages/kitchen.css'
+import React from "react";
+import NavBar from "../nav-footer/nav";
+import Footer from "../nav-footer/footer";
+import "../../styles/pages/kitchen.css";
+import "../../styles/pages/waiter.css";
 
 function Kitchen() {
-    return (
+  return (
     <div className="kitchen">
       {/* PARTE DE NAV */}
       <div>
         <NavBar />
       </div>
-
-      {/* PARTE DE MENU POR SECCIONES
-      creo que debe ir en otro jsx como en el nav */}
-      <nav className='menu-orden'>
-        <li className='orden-breakfasr'>
-          PEDIDOS POR HACER
-        </li>
-        <li className='orden-lunch'>
-          PEDIDOS POR ENTREGAR
-        </li>
-        <li className='orden-drink'>
-          PEDIDOS ENTREGADOS
-        </li>
-      </nav>
-
-      {/* PARTE DONDE INGRESA EL NOMBRE DEL CLIENTE Y EL NUMERO DE MESA */}
-      <section>
-        <button>COCINANDO</button>
-        <button>PEDIDO LISTO</button>
+      <section className="container">
+      <section className="padre-kitchen">
+        <section className="temp-kitchen side">
+          <div className="order-kitchen">
+            <div className="orden-kitchen-btn">
+              <p>Aca va dinamicamente el menu</p>
+              <button className="btn-order-green">LISTO PARA ENTREGAR</button>
+            </div>
+          </div>
+        </section>
+      </section>
+      <section className="kitchen-two">
+        <section className="temp-kitchen side">
+          <div className="ordertwo-kitchen">
+            <div className="orden-kitchen-btn">
+              <p>Aca va dinamicamente el menu</p>
+              <button className="btn-order-green">LISTO  PARA ENTREGAR</button>
+            </div>
+          </div>
+        </section>
+      </section>
       </section>
 
-    {/* FOOTER DE LA PAGINA */}
+      {/* FOOTER DE LA PAGINA */}
       <div>
         <Footer />
       </div>
-
     </div>
-  )
+  );
 }
 
 export default Kitchen;
