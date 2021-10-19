@@ -74,9 +74,9 @@ function Waiter() {
           <section className="btn-order">
             <button className="btn-roder-waiter" onClick={()=>setType('breakfast')}>DESAYUNOS</button>
             {/* <button className="btn-roder-waiter" value='lunch' onClick={(e)=>setType(e.target.value)}>HAMBURGUESAS</button> */}
-            <button className="btn-roder-waiter" onClick={()=>setType('lunch')}>HAMBURGUESAS</button>
-            <button className="btn-roder-waiter" onClick={()=>setType('breakfast')}>ACOMPAÑAMIENTOS</button>
-            <button className="btn-roder-waiter" onClick={()=>setType('lunch')}>BEBIDAS</button>
+            <button className="btn-roder-waiter" onClick={()=>setType('dinner')}>HAMBURGUESAS</button>
+            <button className="btn-roder-waiter" onClick={()=>setType('addfood')}>ACOMPAÑAMIENTOS</button>
+            <button className="btn-roder-waiter" onClick={()=>setType('drink')}>BEBIDAS</button>
           </section>
 
           <div className="order-container-list">
