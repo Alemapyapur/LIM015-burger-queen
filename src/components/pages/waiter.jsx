@@ -2,32 +2,47 @@ import React, { useEffect, useState } from 'react';
 import NavBar from '../nav-footer/nav';
 import Footer from '../nav-footer/footer';
 import { db } from '../../fb-config';
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, where, } from "firebase/firestore";
 import '../../styles/pages/waiter.css'
 
 
 function Waiter() {
-  const [arrayProductList, setArrayProduct] = useState([])
+  const [arrayProductList, setArrayProduct] = useState([]);
+  const [type, setType] = useState("breakfast");
+
+  // const getProductsFirebase = async () => {
+  //   const arrayProduct = [];
+  //   const querySnapshot = await getDocs(collection(db, "products"));
+  //   querySnapshot.forEach((doc) => {
+  //     arrayProduct.push(doc.data())
+  //   });
+
+  //   return arrayProduct;
 
   const getProductsFirebase = async () => {
-    const arrayProduct = [];
-    const querySnapshot = await getDocs(collection(db, "product"));
+    const arrayProduct = [];  
+    const querySnapshot = await getDocs(query(collection(db, "products"),where("type", "==", type)));
     querySnapshot.forEach((doc) => {
-      console.log(doc.id, " => ", doc.data());
-      arrayProduct.push(doc.id, " => ", doc.data())
+      arrayProduct.push(doc.data())
+      // console.log('productos',doc.data());
     });
 
     return arrayProduct;
   };
 
+
+
+
   useEffect(() => {
     async function fetchList() {
       const listMenu = await getProductsFirebase()
-      console.log(listMenu);
+      // console.log(listMenu);
       setArrayProduct(listMenu);
     }
     fetchList();
   }, [])
+
+
 
   return (
 
@@ -62,20 +77,22 @@ function Waiter() {
         {/*AGREGADO 10/10 */}
         <section className='temp-waiter'>
           <section className="btn-order">
-            <button className="btn-roder-waiter">DESAYUNOS</button>
-            <button className="btn-roder-waiter">HAMBURGUESAS</button>
+            <button className="btn-roder-waiter" onClick={()=>setType('breakfast')}>DESAYUNOS</button>
+            <button className="btn-roder-waiter" onClick={()=>setType('lunch')}>HAMBURGUESAS</button>
             <button className="btn-roder-waiter">ACOMPAÑAMIENTOS</button>
             <button className="btn-roder-waiter">BEBIDAS</button>
           </section>
           <div>
 
             {arrayProductList.map((item, index) => {
+              console.log('type',type);
               return (
                 <div key={index}>
-                  <p className="">{item.name}</p>
-                  <p className="">{item.price}</p>
+                  <p className="">{Object.values(item)}</p>
+                  {/* {console.log('productos', item)} */}
+                  { <p className="">{item.price}</p>}
                 </div>
-              )
+              )             
             })}
 
 
