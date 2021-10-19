@@ -7,15 +7,17 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import "../../styles/pages/waiter.css";
 
 function Waiter() {
-  const [contador, setContador] = useState(0);
+  const [pedido, setPedido]= useState([]);
+  // const [contador, setContador] = useState(0);
   const [arrayProductList, setArrayProductList] = useState([]);
   const [type, setType] = useState("breakfast");
-
-  const moreClick = () => {
-    setContador(contador + 1);
+// console.log(pedido)
+  const moreClick = (products) => {
+    // console.log(products)
+  setPedido([...pedido,products])
   };
-  const lessClick = () => {
-    setContador(contador - 1);
+  const lessClick = (products) => {
+    setPedido([...pedido,products]);
   };
 
   const getProductsFirebase = async (type) => {
@@ -74,9 +76,9 @@ function Waiter() {
           <section className="btn-order">
             <button className="btn-roder-waiter" onClick={()=>setType('breakfast')}>DESAYUNOS</button>
             {/* <button className="btn-roder-waiter" value='lunch' onClick={(e)=>setType(e.target.value)}>HAMBURGUESAS</button> */}
-            <button className="btn-roder-waiter" onClick={()=>setType('lunch')}>HAMBURGUESAS</button>
-            <button className="btn-roder-waiter" onClick={()=>setType('breakfast')}>ACOMPAÑAMIENTOS</button>
-            <button className="btn-roder-waiter" onClick={()=>setType('lunch')}>BEBIDAS</button>
+            <button className="btn-roder-waiter" onClick={()=>setType('dinner')}>HAMBURGUESAS</button>
+            <button className="btn-roder-waiter" onClick={()=>setType('addfood')}>ACOMPAÑAMIENTOS</button>
+            <button className="btn-roder-waiter" onClick={()=>setType('drink')}>BEBIDAS</button>
           </section>
 
           <div className="order-container-list">
@@ -88,9 +90,10 @@ function Waiter() {
                   <img className="img-product" src={item.URL}></img>
                   <p className="">{item.name}</p>
                   <div className="btn--order">
-                    <button className="btn-order-container-less" onClick={lessClick}> - </button>
-                    <p>{contador}</p>
-                    <button className="btn-order-container-more" onClick={moreClick}> + </button>
+                    <button className="btn-order-container-less" onClick={()=>lessClick(item)}> - </button>
+                    <p>{pedido.filter(p =>p.id!==item.id).length}</p>
+                    <button className="btn-order-container-more" onClick={()=>moreClick(item)}> + </button>
+                    <p>{pedido.filter(p =>p.id===item.id).length}</p>
                   </div>
                 </div>
               );
