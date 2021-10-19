@@ -8,15 +8,14 @@ import "../../styles/pages/waiter.css";
 
 function Waiter() {
   const [pedido, setPedido]= useState([]);
-  // const [contador, setContador] = useState(0);
   const [arrayProductList, setArrayProductList] = useState([]);
   const [type, setType] = useState("breakfast");
-// console.log(pedido)
+ console.log(pedido)
   const moreClick = (products) => {
-    // console.log(products)
+    //console.log(products)
   setPedido([...pedido,products])
   };
-  const lessClick = (products) => {
+    const lessClick = (products) => {
     setPedido([...pedido,products]);
   };
 
@@ -90,10 +89,10 @@ function Waiter() {
                   <img className="img-product" src={item.URL}></img>
                   <p className="">{item.name}</p>
                   <div className="btn--order">
-                    <button className="btn-order-container-less" onClick={()=>lessClick(item)}> - </button>
-                    <p>{pedido.filter(p =>p.id!==item.id).length}</p>
-                    <button className="btn-order-container-more" onClick={()=>moreClick(item)}> + </button>
+                    <button className="btn-order-container-less" onClick={()=>lessClick(item)}> - </button> 
                     <p>{pedido.filter(p =>p.id===item.id).length}</p>
+                    <button className="btn-order-container-more" onClick={()=>moreClick(item)}> + </button>
+
                   </div>
                 </div>
               );
