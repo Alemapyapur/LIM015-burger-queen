@@ -10,15 +10,16 @@ import ModalOrderCancel from "../menu/modal-cancel";
 
 function Waiter() {
   const [pedido, setPedido]= useState([]);
-  // const [contador, setContador] = useState(0);
+
   const [arrayProductList, setArrayProductList] = useState([]);
   const [type, setType] = useState("breakfast");
+
 // console.log(pedido)
   const moreClick = (products) => {
-    // console.log(products)
+    console.log( 'product', products)
   setPedido([...pedido,products])
   };
-  const lessClick = (products) => {
+  const lessClick = (index, products, num) => {
     setPedido([...pedido,products]);
   };
 
@@ -84,16 +85,15 @@ function Waiter() {
           </section>
 
           <div className="order-container-list">
-            {arrayProductList.map((item, index) => {
-              console.log('type', type);
+            {arrayProductList.map((item) => {
               return (
-                <div className="order-container" key={index}>
+                <div className="order-container" >
                   <p className="">S/. {item.price}.00</p>
-                  <img className="img-product" src={item.URL}></img>
+                  <img className="img-product" alt='img-burguerqueen' src={item.URL}></img>
                   <p className="">{item.name}</p>
                   <div className="btn--order">
                     <button className="btn-order-container-less" onClick={()=>lessClick(item)}> - </button>
-                    <p>{pedido.filter(p =>p.id!==item.id).length}</p>
+                    <p>{pedido.filter(p =>p.id===item.id).length}</p>
                     <button className="btn-order-container-more" onClick={()=>moreClick(item)}> + </button>
                   </div>
                 </div>
