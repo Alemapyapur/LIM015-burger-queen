@@ -23,8 +23,7 @@ function Waiter() {
     const arrayProduct = [];  
     const querySnapshot = await getDocs(query(collection(db, "products"),where("type", "==", type)));
     querySnapshot.forEach((doc) => {
-      arrayProduct.push(doc.data())
-      // console.log('productos',doc.data());
+      arrayProduct.push(doc.id, " => ", doc.data())
     });
 
     return arrayProduct;
@@ -82,20 +81,19 @@ function Waiter() {
             <button className="btn-roder-waiter">ACOMPAÑAMIENTOS</button>
             <button className="btn-roder-waiter">BEBIDAS</button>
           </section>
+
           <div>
 
             {arrayProductList.map((item, index) => {
               console.log('type',type);
               return (
                 <div key={index}>
-                  <p className="">{Object.values(item)}</p>
-                  {/* {console.log('productos', item)} */}
-                  { <p className="">{item.price}</p>}
+                  <p className="">{item.name}</p>
+                  <p className="">{item.price}</p>
+
                 </div>
               )             
             })}
-
-
           </div>
         </section>
       </section>
