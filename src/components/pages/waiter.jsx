@@ -93,7 +93,7 @@ function Waiter() {
                   <p className="">{item.name}</p>
                   <div className="btn--order">
                     <button className="btn-order-container-less" onClick={()=>lessClick(item)}> - </button>
-                    <p>{pedido.filter(p =>p.id!==item.id).length}</p>
+                    <p>{pedido.filter(p =>p.id===item.id).length}</p>
                     <button className="btn-order-container-more" onClick={()=>moreClick(item)}> + </button>
                   </div>
                 </div>
