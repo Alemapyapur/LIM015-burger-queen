@@ -5,6 +5,8 @@ import Footer from "../nav-footer/footer";
 import { db } from "../../fb-config";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import "../../styles/pages/waiter.css";
+import ModalOrderConfirm from "../menu/modal-confirm";
+import ModalOrderCancel from "../menu/modal-cancel";
 
 function Waiter() {
   const [pedido, setPedido]= useState([]);
@@ -66,8 +68,8 @@ function Waiter() {
               {/* <OrderWaiter /> */}
             </div>
             <div className="btn-send-order">
-              <button className="btn-order-red">CANCELAR PEDIDO</button>
-              <button className="btn-order-green">ENVIAR A LA COCINA</button>
+              <button className="btn-order-red"><ModalOrderCancel /></button>
+              <button className="btn-order-green"><ModalOrderConfirm /></button>
             </div>
           </section>
         </section>
@@ -93,7 +95,6 @@ function Waiter() {
                     <button className="btn-order-container-less" onClick={()=>lessClick(item)}> - </button>
                     <p>{pedido.filter(p =>p.id!==item.id).length}</p>
                     <button className="btn-order-container-more" onClick={()=>moreClick(item)}> + </button>
-                    <p>{pedido.filter(p =>p.id===item.id).length}</p>
                   </div>
                 </div>
               );
