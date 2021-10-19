@@ -7,15 +7,17 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import "../../styles/pages/waiter.css";
 
 function Waiter() {
-  const [contador, setContador] = useState(0);
+  const [pedido, setPedido]= useState([]);
+  // const [contador, setContador] = useState(0);
   const [arrayProductList, setArrayProductList] = useState([]);
   const [type, setType] = useState("breakfast");
-
-  const moreClick = () => {
-    setContador(contador + 1);
+// console.log(pedido)
+  const moreClick = (products) => {
+    // console.log(products)
+  setPedido([...pedido,products])
   };
-  const lessClick = () => {
-    setContador(contador - 1);
+  const lessClick = (products) => {
+    setPedido([...pedido,products]);
   };
 
   const getProductsFirebase = async (type) => {
@@ -88,9 +90,10 @@ function Waiter() {
                   <img className="img-product" src={item.URL}></img>
                   <p className="">{item.name}</p>
                   <div className="btn--order">
-                    <button className="btn-order-container-less" onClick={lessClick}> - </button>
-                    <p>{contador}</p>
-                    <button className="btn-order-container-more" onClick={moreClick}> + </button>
+                    <button className="btn-order-container-less" onClick={()=>lessClick(item)}> - </button>
+                    <p>{pedido.filter(p =>p.id!==item.id).length}</p>
+                    <button className="btn-order-container-more" onClick={()=>moreClick(item)}> + </button>
+                    <p>{pedido.filter(p =>p.id===item.id).length}</p>
                   </div>
                 </div>
               );
