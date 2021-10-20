@@ -14,7 +14,7 @@ function Waiter() {
   // const [arrayProductList, setArrayProductList] = useState([]);
   // const [type, setType] = useState("breakfast");
 // console.log(pedido)
-  
+
   // const moreClick = (products) => {
   //   console.log( 'rocio', products)
   // setPedido([...pedido,products])
@@ -51,11 +51,10 @@ function Waiter() {
       {/* PARTE DE NAV */}
       <>
         <NavBar />
-        
       </>
 
       {/* PARTE DONDE INGRESA EL NOMBRE DEL CLIENTE Y EL NUMERO DE MESA */}
-      <section className="padre">
+      <div className="padre">
         <section className="temp-waiter side">
           <div>
             <section className="dataClient">
@@ -80,17 +79,17 @@ function Waiter() {
             </div>
           </section>
         </section>
-        {/*AGREGADO 10/10 */}
-        <section className="temp-waiter">
-          <section className="btn-order">
-            <OrderProduct />
+
+        {/* <section className="temp-waiter">
+          <section className="btn-order"> */}
+          <OrderProduct />
             {/* <button className="btn-roder-waiter" onClick={()=>setType('breakfast')}>DESAYUNOS</button>
             <button className="btn-roder-waiter" onClick={()=>setType('dinner')}>HAMBURGUESAS</button>
             <button className="btn-roder-waiter" onClick={()=>setType('addfood')}>ACOMPAÑAMIENTOS</button>
             <button className="btn-roder-waiter" onClick={()=>setType('drink')}>BEBIDAS</button> */}
-          </section>
+          {/* </section> */}
 
-          <div className="order-container-list">
+          {/* <div className="order-container-list"> */}
             {/* {arrayProductList.map((item, index) => {
               //console.log('type', type);
               return (
@@ -106,9 +105,10 @@ function Waiter() {
                 </div>
               );
             })} */}
-          </div>
-        </section>
-      </section>
+          {/* </div>
+          </section>
+        </section> */}
+      </div>
 
       {/* FOOTER DE LA PAGINA */}
       <div>
@@ -116,6 +116,6 @@ function Waiter() {
       </div>
     </div>
   );
-}
+};
 
 export default Waiter;

@@ -1,67 +1,71 @@
 import React, { useEffect, useState } from "react";
 import { db } from "../../fb-config";
 import { collection, getDocs, query, where } from "firebase/firestore";
+import "../../styles/pages/waiter.css";
 
 export default function OrderProduct() {
-    const [pedido, setPedido] = useState([]);
-    const [arrayProductList, setArrayProductList] = useState([]);
-    const [type, setType] = useState("breakfast");
+  const [pedido, setPedido] = useState([]);
+  const [arrayProductList, setArrayProductList] = useState([]);
+  const [type, setType] = useState("breakfast");
 
-    const moreClick = (products) => {
-        console.log('rocio', products)
-        setPedido([...pedido, products])
-    };
-    // console.log(pedido)
-    const lessClick = (index) => {
-        // console.log(index)
-        const deleteProducts = pedido.filter((p, i) => i !== index);
-        // console.log(deleteProducts)
-        setPedido(deleteProducts);
-    };
+  const moreClick = (products) => {
+    console.log('rocio', products)
+    setPedido([...pedido, products])
+  };
+  // console.log(pedido)
+  const lessClick = (index) => {
+    // console.log(index)
+    const deleteProducts = pedido.filter((p, i) => i !== index);
+    // console.log(deleteProducts)
+    setPedido(deleteProducts);
+  };
 
-    const getProductsFirebase = async (type) => {
-        const arrayProduct = [];
-        const querySnapshot = await getDocs(query(collection(db, "products"), where("type", "==", type)));
-        querySnapshot.forEach((doc) => {
-            arrayProduct.push(doc.data());
-        });
+  const getProductsFirebase = async (type) => {
+    const arrayProduct = [];
+    const querySnapshot = await getDocs(query(collection(db, "products"), where("type", "==", type)));
+    querySnapshot.forEach((doc) => {
+      arrayProduct.push(doc.data());
+    });
 
-        return arrayProduct;
-    };
+    return arrayProduct;
+  };
 
-    useEffect(() => {
-        async function fetchList() {
-            const listMenu = await getProductsFirebase(type);
-            // console.log(listMenu);
-            setArrayProductList(listMenu);
-        }
-        fetchList();
-    }, [type]);
-    return (
-        <>
-            <section>
-                <button className="btn-roder-waiter" onClick={() => setType('breakfast')}>DESAYUNOS</button>
-                <button className="btn-roder-waiter" onClick={() => setType('dinner')}>HAMBURGUESAS</button>
-                <button className="btn-roder-waiter" onClick={() => setType('addfood')}>ACOMPAÑAMIENTOS</button>
-                <button className="btn-roder-waiter" onClick={() => setType('drink')}>BEBIDAS</button>
-            </section>
-            {arrayProductList.map((item, index) => {
-                //console.log('type', type);
-                return (
-                    <div className="order-container" >
-                        <p className="">S/. {item.price}.00</p>
-                        <img className="img-product" alt='img-burguerqueen' src={item.URL}></img>
-                        <p className="">{item.name}</p>
-                        <div className="btn--order">
-                            <button className="btn-order-container-less" onClick={() => lessClick(index)}> - </button>
-                            <p>{pedido.filter(p => p.id === item.id).length}</p>
-                            <button className="btn-order-container-more" onClick={() => moreClick(item)}> + </button>
-                        </div>
-                    </div>
-                );
-            })}
-        </>
-    )
+  useEffect(() => {
+    async function fetchList() {
+      const listMenu = await getProductsFirebase(type);
+      // console.log(listMenu);
+      setArrayProductList(listMenu);
+    }
+    fetchList();
+  }, [type]);
+  return (
+    <section className="temp-waiter">
+      <section className="btn-order">
+        <button className="btn-roder-waiter" onClick={() => setType('breakfast')}>DESAYUNOS</button>
+        <button className="btn-roder-waiter" onClick={() => setType('dinner')}>HAMBURGUESAS</button>
+        <button className="btn-roder-waiter" onClick={() => setType('addfood')}>ACOMPAÑAMIENTOS</button>
+        <button className="btn-roder-waiter" onClick={() => setType('drink')}>BEBIDAS</button>
+      </section>
+
+      <div className="order-container-list">
+        {arrayProductList.map((item, index) => {
+          //console.log('type', type);
+          return (
+            <div className="order-container" >
+              <p className="">S/. {item.price}.00</p>
+              <img className="img-product" alt='img-burguerqueen' src={item.URL}></img>
+              <p className="">{item.name}</p>
+              <div className="btn--order">
+                <button className="btn-order-container-less" onClick={() => lessClick(index)}> - </button>
+                <p>{pedido.filter(p => p.id === item.id).length}</p>
+                <button className="btn-order-container-more" onClick={() => moreClick(item)}> + </button>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  )
 }
 
 // export default function OrderProduct({ products, index, order, setOrder }) {
