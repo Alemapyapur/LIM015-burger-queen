@@ -8,12 +8,12 @@ export default function OrderProduct() {
   
   const [arrayProductList, setArrayProductList] = useState([]);
   const [type, setType] = useState("breakfast");
-  const [pedido, setPedido] = useState([]);
+  // const [pedido, setPedido] = useState([]);
 
-  const moreClick = (products) => {
-      console.log('products', products)
-      setPedido([...pedido, products])
-  };
+  // const moreClick = (products) => {
+  //     console.log('products', products)
+  //     setPedido([...pedido, products])
+  // };
   
 
   const getProductsFirebase = async (type) => {
@@ -34,6 +34,9 @@ export default function OrderProduct() {
     }
     fetchList();
   }, [type]);
+  
+  
+
   return (
     <section className="temp-waiter">
       <section className="btn-order">
@@ -46,6 +49,11 @@ export default function OrderProduct() {
       <div className="order-container-list">
         {arrayProductList.map((item, index) => {
           //console.log('type', type);
+          const productList = {
+            nombre: item.name,
+            precio: item.price
+          }
+
           return (
             <div className="order-container" >
               <p className="">S/. {item.price}.00</p>
@@ -53,7 +61,8 @@ export default function OrderProduct() {
               <p className="">{item.name}</p>
               {/* <section> <AddProducts /> </section> */}
               <div className="btn--order">
-            <button onClick={() => moreClick(item)}> Agregar</button>
+            {/* <button onClick={() => moreClick(item)}> Agregar</button> */}
+            <section><AddProducts productList={productList}/></section>
         </div>
             </div>
           );

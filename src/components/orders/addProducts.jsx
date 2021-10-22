@@ -1,20 +1,20 @@
-// import React, { useState } from 'react'
+import React, { useState } from 'react'
 
-// function AddProducts() {
+function AddProducts({ productList }) {
 
-//     // const [pedido, setPedido] = useState([]);
+    const [pedido, setPedido] = useState([]);
+    const moreClick = (products) => {
+        console.log('products', products)
+        setPedido( productList)
+        
+    };
+    
 
-//     // const moreClick = (products) => {
-//     //     console.log('products', products)
-//     //     setPedido([...pedido, products])
-//     // };
-//     // console.log(pedido)
+    return (
+        <div className="btn--order">
+            <button onClick={() => moreClick(productList)}> Agregar</button>
+        </div>
+    )
+}
 
-//     return (
-//         <div className="btn--order">
-//             <button onClick={() => moreClick()}> Agregar</button>
-//         </div>
-//     )
-// }
-
-// export default AddProducts
+export default AddProducts
