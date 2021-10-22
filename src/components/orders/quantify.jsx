@@ -9,8 +9,12 @@ export default function OrderProduct() {
   const [type, setType] = useState("breakfast");
 
   const moreClick = (products) => {
-    console.log('rocio', products)
-    setPedido([...pedido, products])
+    // console.log('rocio', products)
+    let arrvacio = [];
+
+    arrvacio.push(setPedido([...pedido, products]))
+
+    return console.log(arrvacio)
   };
   // console.log(pedido)
   const lessClick = (index) => {

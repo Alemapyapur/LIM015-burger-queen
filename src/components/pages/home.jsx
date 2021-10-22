@@ -1,14 +1,21 @@
-import React from 'react';
-import app from '../../fb-config'
+import React from "react";
 import { Link } from 'react-router-dom'
 import '../../styles/pages/home.css'
 import { getAuth, signOut } from "firebase/auth";
+// import {  signOut } from "firebase/auth";
+// import Logueo from "../pages/login";
+import app from '../../fb-config'
 
-const auth = getAuth(app);
+
+
 
 function Home() {
+  const auth = getAuth(app);
+
   return (
-    <div className="Home">
+
+      (
+   <div className = "Home" >
       <br/>
       <div className='btn-home'>
 
@@ -25,7 +32,10 @@ function Home() {
         </Link>
       </button>
       </div>
-    </div>
+    </div> 
+    ) 
+
+    
   );
 }
 
