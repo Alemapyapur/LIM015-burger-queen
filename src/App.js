@@ -6,8 +6,8 @@ import Home from './components/pages/home.jsx'
 import Kitchen from './components/pages/kitchen.jsx'
 import Waiter from './components/pages/waiter.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Logueo from './components/pages/login';
-import NotFound from './components/pages/404.jsx';
+import Logueo from './components/pages/Logueo';
+import NotFound from './components/pages/notFound';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import app from "./fb-config";
 

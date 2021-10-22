@@ -1,6 +1,6 @@
 // import { Link } from 'react-router-dom'
 import React from "react";
-import NavBar from "../nav-footer/nav";
+import NavBar from "../nav-footer/navBar";
 import Footer from "../nav-footer/footer";
 import "../../styles/pages/kitchen.css";
 import "../../styles/pages/waiter.css";
