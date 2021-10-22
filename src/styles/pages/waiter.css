@@ -137,3 +137,8 @@
 .btn-order-container-more {
   background-color:rgb(56, 172, 56);
 }
+
+
+.btn-primary{
+  background-color: cornflowerblue !important;
+}

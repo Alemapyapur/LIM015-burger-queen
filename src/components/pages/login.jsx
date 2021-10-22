@@ -1,42 +1,39 @@
-import React, { useState } from "react";
+import React from "react";
 import { Stack, Container, Form, Button } from "react-bootstrap";
-
 import app from "../../fb-config";
 import {
   getAuth,
-  createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signInWithRedirect,
-  GoogleAuthProvider,
 } from "firebase/auth";
+
+
 const auth = getAuth(app);
-const googleProvider = new GoogleAuthProvider();
 
 const Logueo = () => {
-  const [estaRegistrandose, setEstaRegistrandose] = useState(false);
 
   async function submitHandler(e) {
     e.preventDefault();
     const correo = e.target.formBasicEmail.value;
     const contra = e.target.formBasicPassword.value;
 
-    if (estaRegistrandose) {
-      //si se registra
-      await createUserWithEmailAndPassword(
-        auth,
-        correo,
-        contra
-      );
-    } else {
       // si está iniciando sesión
-      signInWithEmailAndPassword(auth, correo, contra);
-    }
+      signInWithEmailAndPassword(auth, correo, contra)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
+    
   }
 
   return (
     <Container>
       <Stack gap={3}>
-        <h1>{estaRegistrandose ? "Regístrate" : "inicia sesión"}</h1>
+        <h1>{"inicia sesión"}</h1>
         <Form onSubmit={submitHandler}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
@@ -49,28 +46,9 @@ const Logueo = () => {
           </Form.Group>
 
           <Button variant="dark" type="submit">
-            {estaRegistrandose ? "Regístrate" : "inicia sesión"}
+            {"inicia sesión"}
           </Button>
         </Form>
-
-        <Button
-          variant="primary"
-          type="submit"
-          style={{ width: "300px" }}
-          onClick={() => signInWithRedirect(auth, googleProvider)}
-        >
-          Acceder con Google
-        </Button>
-
-        <Button
-          style={{ width: "300px" }}
-          variant="secondary"
-          onClick={() => setEstaRegistrandose(!estaRegistrandose)}
-        >
-          {estaRegistrandose
-            ? "¿Ya tienes cuenta? Inicia sesión"
-            : "¿No tienes cuenta? Regístrate"}
-        </Button>
       </Stack>
     </Container>
   );
