@@ -4,9 +4,11 @@ import "../../styles/pages/waiter.css";
 import ModalOrderConfirm from "../menu/modalOrderConfirm";
 import ModalOrderCancel from "../menu/modalOrderCancel";
 import OrderProduct from "../orders/OrderProduct";
+import { useState } from "react";
 
 function Waiter() {
-
+  const [pedido, setPedido] = useState([]);
+  console.log(pedido);
   return (
     <div className="waiter">
       {/* PARTE DE NAV */}
@@ -30,15 +32,27 @@ function Waiter() {
 
           <section>
             <div className="order">
-             
+              {pedido.length > 0 &&
+                pedido.map((product) => {
+                  return (
+                    <section>
+                      {product.nombre}
+                      <div>{product.precio}</div>
+                    </section>
+                  );
+                })}
             </div>
             <div className="btn-send-order">
-              <button className="btn-order-red"><ModalOrderCancel /></button>
-              <button className="btn-order-green"><ModalOrderConfirm /></button>
+              <button className="btn-order-red">
+                <ModalOrderCancel />
+              </button>
+              <button className="btn-order-green">
+                <ModalOrderConfirm />
+              </button>
             </div>
           </section>
         </section>
-          <OrderProduct />
+        <OrderProduct setPedido={setPedido} pedido={pedido} />
       </div>
       {/* FOOTER DE LA PAGINA */}
       <div>
@@ -46,6 +60,6 @@ function Waiter() {
       </div>
     </div>
   );
-};
+}
 
 export default Waiter;
