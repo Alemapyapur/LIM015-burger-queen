@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-function AddProducts({ productList }) {
+function AddProducts({ productList, pedido , setPedido }) {
 
-    const [pedido, setPedido] = useState([]);
+    
     const moreClick = (products) => {
         console.log('products', products)
-        setPedido( productList)
+        setPedido([...pedido, products])
+        
         
     };
     
@@ -18,3 +19,5 @@ function AddProducts({ productList }) {
 }
 
 export default AddProducts
+
+
