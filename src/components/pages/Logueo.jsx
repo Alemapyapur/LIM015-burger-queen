@@ -1,10 +1,12 @@
-import React from "react";
-import { Stack, Container, Form, Button } from "react-bootstrap";
+import React, { Fragment } from "react";
+// import { Stack, Container, Form, Button } from "react-bootstrap";
 import app from "../../fb-config";
 import {
   getAuth,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+import '../../styles/pages/logueo.css';
+import imagenLogo from '../../img/burger-logo.png'
 
 
 const auth = getAuth(app);
@@ -16,8 +18,8 @@ const Logueo = () => {
     const correo = e.target.formBasicEmail.value;
     const contra = e.target.formBasicPassword.value;
 
-      // si está iniciando sesión
-      signInWithEmailAndPassword(auth, correo, contra)
+    // si está iniciando sesión
+    signInWithEmailAndPassword(auth, correo, contra)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
@@ -27,30 +29,33 @@ const Logueo = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
       });
-    
+
   }
 
+
   return (
-    <Container>
-      <Stack gap={3}>
-        <h1>{"inicia sesión"}</h1>
-        <Form onSubmit={submitHandler}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
-          </Form.Group>
+    <Fragment>
+      <div className='login-page'>
+        {/* <h1>{"INICIA SESIÓN"}</h1> */}
+        <img src={imagenLogo} alt="" className='imagenLogo' />
+        <form onSubmit={submitHandler} className="bodyContainer">
+          <section className="mb-3" >
+            <h1 className="labelInicio">{"INICIA SESIÓN"}</h1>
+            <label>Email address:</label>
+            <input type="email" placeholder="Enter email" id="formBasicEmail" className="inputEmail" />
+          </section>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
-          </Form.Group>
+          <section className="mb-3" >
+            <label>Password:</label>
+            <input type="password" placeholder="Password" id="formBasicPassword" className="inputPassword" />
+          </section>
 
-          <Button variant="dark" type="submit">
-            {"inicia sesión"}
-          </Button>
-        </Form>
-      </Stack>
-    </Container>
+          <button type="submit" className="buttonSubmit">
+            {"INGRESAR"}
+          </button>
+        </form>
+      </div>
+    </Fragment>
   );
 };
 

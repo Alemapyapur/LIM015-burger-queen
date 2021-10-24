@@ -1,0 +1,44 @@
+body {
+   background-color: blanchedalmond; 
+}
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid black;
+  height: 320px;
+  margin: 160px 20% 160px 20%;
+  border-radius: 15px;
+}
+
+.imagenLogo {
+  width: 200px;
+  margin-right: 40px;
+}
+
+.bodyContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.labelInicio {
+    margin-top: -60px;
+    margin-bottom: 30px;
+}
+
+.inputPassword {
+    margin-left: 39px;
+}
+
+.inputEmail{
+margin-left: 9px;
+}
+
+.buttonSubmit {
+    border-radius: 17px;
+    height: 40px;
+    background-color: #b21515;
+    border: none;
+    color: white;
+    
+}
