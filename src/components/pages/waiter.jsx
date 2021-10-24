@@ -31,17 +31,31 @@ function Waiter() {
           </div>
 
           <section>
-            <div className="order">
-              {pedido.length > 0 &&
-                pedido.map((product) => {
-                  return (
-                    <section>
-                      {product.nombre}
-                      <div>{product.precio}</div>
-                    </section>
-                  );
-                })}
-            </div>
+            <table className="order">
+              <thead className="table">
+                <tr className="table-order">
+                  <th className="table-order-title">Cantidad</th>
+                  <th className="table-order-title">Nombre</th>
+                  <th className="table-order-title">Price</th>
+                  <th className="table-order-title">Eliminar</th>
+                </tr>
+              </thead>
+              <tbody>
+                {
+                  pedido.length > 0 && pedido.map((product) => (
+                    <tr className="table-product-order" key={product.id}>
+                      <td className="table-order-product">{product.count}</td>
+                      <td className="table-order-product">{product.nombre}</td>
+                      <td className="table-order-product">{product.precio}</td>
+                      <td className="table-order-product">
+                        <button className="btn-order-trash"></button>
+                      </td>
+                    </tr>
+                  ))
+                }
+              </tbody>
+            </table>
+
             <div className="btn-send-order">
               <button className="btn-order-red">
                 <ModalOrderCancel />

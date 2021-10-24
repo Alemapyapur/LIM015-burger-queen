@@ -1,4 +1,5 @@
 import React from 'react'
+import "../../styles/pages/waiter.css"
 
 function AddProducts({ productList, pedido , setPedido }) {
 
@@ -12,8 +13,8 @@ function AddProducts({ productList, pedido , setPedido }) {
     
 
     return (
-        <div className="btn--order">
-            <button onClick={() => moreClick(productList)}> Agregar</button>
+        <div>
+            <button className="btn--order" onClick={() => moreClick(productList)}> Agregar</button>
         </div>
     )
 }

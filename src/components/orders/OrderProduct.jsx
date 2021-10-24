@@ -56,9 +56,9 @@ export default function OrderProduct({setPedido,pedido}) {
 
           return (
             <div className="order-container" >
-              <p className="">S/. {item.price}.00</p>
+              <p className="text-order">S/. {item.price}.00</p>
               <img className="img-product" alt='img-burguerqueen' src={item.URL}></img>
-              <p className="">{item.name}</p>
+              <p className="text-order">{item.name}</p>
               {/* <section> <AddProducts /> </section> */}
               <div className="btn--order">
             {/* <button onClick={() => moreClick(item)}> Agregar</button> */}
