@@ -1,12 +1,13 @@
 import NavBar from "../nav-footer/navBar";
 import Footer from "../nav-footer/footer";
 import "../../styles/pages/waiter.css";
-import ModalOrderConfirm from "../menu/modalOrderConfirm";
+// import ModalOrderConfirm from "../menu/modalOrderConfirm";
 import ModalOrderCancel from "../menu/modalOrderCancel";
 import OrderProduct from "../orders/OrderProduct";
 import { useState } from "react";
+import ModalConfirm from "../menu/modalConfirm";
 
-function Waiter() {
+function Waiter({}) {
   const [pedido, setPedido] = useState([]);
   console.log(pedido);
   return (
@@ -60,9 +61,7 @@ function Waiter() {
               <button className="btn-order-red">
                 <ModalOrderCancel />
               </button>
-              <button className="btn-order-green">
-                <ModalOrderConfirm />
-              </button>
+                <ModalConfirm />
             </div>
           </section>
         </section>
