@@ -10,6 +10,11 @@ import ModalConfirm from "../menu/modalConfirm";
 function Waiter({}) {
   const [pedido, setPedido] = useState([]);
   console.log(pedido);
+  const deleteTrash = (index) =>{
+const deleteItem = pedido.filter((product,i)=>index!==i)
+console.log(deleteItem);
+return setPedido(deleteItem);
+  }   
   return (
     <div className="waiter">
       {/* PARTE DE NAV */}
@@ -43,20 +48,22 @@ function Waiter({}) {
               </thead>
               <tbody>
                 {
-                  pedido.length > 0 && pedido.map((product) => (
+                  pedido.length > 0 && pedido.map((product,index) => (
                     <tr className="table-product-order" key={product.id}>
                       <td className="table-order-product">{product.count}</td>
                       <td className="table-order-product">{product.nombre}</td>
                       <td className="table-order-product">{product.precio}</td>
                       <td className="table-order-product">
-                        <button className="btn-order-trash"></button>
+                        <button className="btn-order-trash" onClick={() => deleteTrash(index)}></button>
+                        
                       </td>
                     </tr>
                   ))
                 }
               </tbody>
-            </table>
-
+              </table>
+              <section className="table-order-title">TOTAL:$ {pedido.length>0  && pedido.reduce((a,b)=>(a+b.precio), 0)}</section>
+              
             <div className="btn-send-order">
               <button className="btn-order-red">
                 <ModalOrderCancel />
@@ -74,5 +81,6 @@ function Waiter({}) {
     </div>
   );
 }
+
 
 export default Waiter;
