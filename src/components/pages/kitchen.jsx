@@ -14,7 +14,7 @@ function Kitchen() {
       </>
 
       <section className="kitchen-view">
-        <section className="btn-order">
+        <section className="btn-order-kitchen">
           <button className="btn-order-kitchen-delivery" onClick={() => setOrder('orderDelivery')}>PEDIDOS POR ENTREGAR</button>
           <button className="btn-order-kitchen-send" onClick={() => setOrder('orderSend')}>PEDIDOS ENTREGADOS</button>
         </section>
