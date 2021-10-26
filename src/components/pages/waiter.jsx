@@ -9,18 +9,19 @@ import "../../styles/pages/waiter.css";
 
 function Waiter() {
   const [pedido, setPedido] = useState([]);
+  // const [cantidad, setCantidad] = useState(1);
   console.log(pedido);
   const deleteTrash = (index) => {
     const deleteItem = pedido.filter((product, i) => index !== i)
     console.log(deleteItem);
     return setPedido(deleteItem);
   }
+  
   return (
     <div className="waiter">
       <>
         <NavBar />
       </>
-
       <div className="padre">
         <section className="section-side-left">
           <div className="box-client-table">
@@ -48,7 +49,9 @@ function Waiter() {
                 {
                   pedido.length > 0 && pedido.map((product, index) => (
                     <tr className="table-product-order" key={product.id}>
-                      <td className="table-order-product">{product.count}</td>
+                      {/* <p>{cantidad}</p>
+                      <td className="table-order-product">{product.count}</td> */}
+                      <td className="table-order-product">{product.nombre}</td>
                       <td className="table-order-product">{product.nombre}</td>
                       <td className="table-order-product">S/{product.precio}.00</td>
                       <td className="table-order-product">
@@ -73,7 +76,6 @@ function Waiter() {
           <OrderProduct setPedido={setPedido} pedido={pedido} />
         </section>
       </div>
-
       <div>
         <Footer />
       </div>

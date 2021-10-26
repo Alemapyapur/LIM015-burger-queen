@@ -12,7 +12,7 @@
 .window {
     position: relative;
     background: #fff;
-    border-radius: 15px;
+    border-radius: 10px;
     padding: 15;
     box-shadow: 2px 2px 10px rgba(0,0,0,3);
     z-index: 10;
@@ -23,4 +23,11 @@
     position: absolute;
     top: 0;
     right: 0;
+    border-radius: 5px;
+    background-color: red;
+}
+
+.children-div {
+  height: 150px;
+  width: 300px;
 }

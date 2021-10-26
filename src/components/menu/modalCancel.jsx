@@ -1,4 +1,3 @@
-// import { Modal } from 'bootstrap';
 import React, { useState } from 'react'
 import Modal from "./modalOrderConfirm"
 
@@ -12,14 +11,18 @@ const ModalCancel = () => {
 
     return (
         <>
-            <button className="btn-order-red" onClick={toggle}>
+
+            <button  onClick={toggle}>
                 CANCELAR
             </button>
             <Modal active={active} toggle={toggle}>
-                <h1>modal works</h1>
+                <h5>¿Deseas cancelar el pedido?</h5>
+                <button onClick={toggle}>Cancelar</button>
+                <button>Aceptar</button>
             </Modal>
         </>
     )
 }
 
 export default ModalCancel;
+
