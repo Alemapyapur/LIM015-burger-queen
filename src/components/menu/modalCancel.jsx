@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import Modal from "./modalOrderConfirm"
 
 
-const ModalConfirm = () => {
+const ModalCancel = () => {
     const [active, setActive] = useState(false);
 
     const toggle = () => {
@@ -12,8 +12,8 @@ const ModalConfirm = () => {
 
     return (
         <>
-            <button className="btn-order-green" onClick={toggle}>
-                CONFIRMAR
+            <button className="btn-order-red" onClick={toggle}>
+                CANCELAR
             </button>
             <Modal active={active} toggle={toggle}>
                 <h1>modal works</h1>
@@ -22,4 +22,4 @@ const ModalConfirm = () => {
     )
 }
 
-export default ModalConfirm;
+export default ModalCancel;
