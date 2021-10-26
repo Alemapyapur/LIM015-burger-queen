@@ -2,19 +2,28 @@ import NavBar from "../nav-footer/navBar";
 import Footer from "../nav-footer/footer";
 import "../../styles/pages/waiter.css";
 // import ModalOrderConfirm from "../menu/modalOrderConfirm";
-import ModalOrderCancel from "../menu/modalOrderCancel";
+import ModalOrderCancel from "../menu/modalCancel";
 import OrderProduct from "../orders/OrderProduct";
 import { useState } from "react";
 import ModalConfirm from "../menu/modalConfirm";
 
-function Waiter({}) {
+function Waiter() {
   const [pedido, setPedido] = useState([]);
-  console.log(pedido);
-  const deleteTrash = (index) =>{
-const deleteItem = pedido.filter((product,i)=>index!==i)
-console.log(deleteItem);
-return setPedido(deleteItem);
-  }   
+  // console.log(pedido);
+  const deleteTrash = (index) => {
+    pedido.map((product, i) => {
+      if (product.id === index) {
+        if (product.count === 1) {
+          const deleteId = pedido.filter((product) => product.id !== index);
+          console.log(deleteId, "eliminar");
+          setPedido(deleteId);
+        } else {
+          product.count = product.count - 1;
+          return setPedido([...pedido]);
+        }
+      }
+    });
+  };
   return (
     <div className="waiter">
       {/* PARTE DE NAV */}
@@ -47,28 +56,31 @@ return setPedido(deleteItem);
                 </tr>
               </thead>
               <tbody>
-                {
-                  pedido.length > 0 && pedido.map((product,index) => (
+                {pedido.length > 0 &&
+                  pedido.map((product, index) => (
                     <tr className="table-product-order" key={product.id}>
                       <td className="table-order-product">{product.count}</td>
                       <td className="table-order-product">{product.nombre}</td>
                       <td className="table-order-product">{product.precio}</td>
                       <td className="table-order-product">
-                        <button className="btn-order-trash" onClick={() => deleteTrash(index)}></button>
-                        
+                        <button
+                          className="btn-order-trash"
+                          onClick={() => deleteTrash(product.id)}
+                        ></button>
                       </td>
                     </tr>
-                  ))
-                }
+                  ))}
               </tbody>
-              </table>
-              <section className="table-order-title">TOTAL:$ {pedido.length>0  && pedido.reduce((a,b)=>(a+b.precio), 0)}</section>
-              
+            </table>
+            <section className="table-order-title">
+              TOTAL:${" "}
+              {pedido.length > 0 && pedido.reduce((a, b) => a + b.precio, 0)}
+            </section>
             <div className="btn-send-order">
               <button className="btn-order-red">
                 <ModalOrderCancel />
               </button>
-                <ModalConfirm />
+              <ModalConfirm />
             </div>
           </section>
         </section>
@@ -81,6 +93,5 @@ return setPedido(deleteItem);
     </div>
   );
 }
-
 
 export default Waiter;

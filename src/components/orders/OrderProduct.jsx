@@ -50,8 +50,10 @@ export default function OrderProduct({setPedido,pedido}) {
         {arrayProductList.map((item, index) => {
           //console.log('type', type);
           const productList = {
+            id:item.id,
             nombre: item.name,
-            precio: item.price
+            precio: item.price, 
+            count:0
           }
 
           return (
