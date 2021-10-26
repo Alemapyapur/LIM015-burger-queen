@@ -35,7 +35,7 @@ export default function OrderProduct({ setPedido, pedido }) {
       <section className="btn-order">
         <button className="btn-order-waiter" onClick={() => setType('breakfast')}>DESAYUNOS</button>
         <button className="btn-order-waiter" onClick={() => setType('dinner')}>HAMBURGUESAS</button>
-        <button className="btn-order-waiter" onClick={() => setType('addfood')}>ACOMPAÑAMIENTOS</button>
+        <button className="btn-order-waiter" onClick={() => setType('addfood')}>EXTRAS</button>
         <button className="btn-order-waiter" onClick={() => setType('drink')}>BEBIDAS</button>
       </section>
 
@@ -43,10 +43,11 @@ export default function OrderProduct({ setPedido, pedido }) {
         {arrayProductList.map((item, index) => {
           //console.log('type', type);
           const productList = {
+            id:item.id,
             nombre: item.name,
-            precio: item.price
+            precio: item.price,
+            count:0
           }
-
           return (
             <div className="order-container" >
               <p className="text-order">S/ {item.price}.00</p>

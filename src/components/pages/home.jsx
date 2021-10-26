@@ -1,25 +1,16 @@
 import React from "react";
 import { Link } from 'react-router-dom'
 import '../../styles/pages/home.css'
-import { getAuth, signOut } from "firebase/auth";
 // import {  signOut } from "firebase/auth";
 // import Logueo from "../pages/login";
-import app from '../../fb-config'
-
-
-
 
 function Home() {
-  const auth = getAuth(app);
 
   return (
 
-      (
-   <div className = "Home" >
+    <div className = "Home" >
       <br/>
       <div className='btn-home'>
-
-      <button onClick={() => signOut (auth)}>Cerrar sesión</button>
 
       <button className="Home-btn">
         <Link className="link-btn" to='/Waiter'>
@@ -32,10 +23,8 @@ function Home() {
         </Link>
       </button>
       </div>
-    </div> 
-    ) 
+    </div>
 
-    
   );
 }
 

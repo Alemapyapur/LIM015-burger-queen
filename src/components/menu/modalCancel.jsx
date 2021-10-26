@@ -12,7 +12,7 @@ const ModalCancel = () => {
     return (
         <>
 
-            <button  onClick={toggle}>
+            <button className="btn-order-red" onClick={toggle}>
                 CANCELAR
             </button>
             <Modal active={active} toggle={toggle}>
