@@ -10,12 +10,22 @@ import "../../styles/pages/waiter.css";
 function Waiter() {
   const [pedido, setPedido] = useState([]);
   // const [cantidad, setCantidad] = useState(1);
-  console.log(pedido);
+  //console.log(pedido);
   const deleteTrash = (index) => {
-    const deleteItem = pedido.filter((product, i) => index !== i)
-    console.log(deleteItem);
-    return setPedido(deleteItem);
-  }
+    // eslint-disable-next-line array-callback-return
+    pedido.map((product, i) => {
+      if (product.id === index) {
+        if (product.count === 1) {
+          const deleteId = pedido.filter((product) => product.id !== index);
+          console.log(deleteId, "eliminar");
+          setPedido(deleteId);
+        } else {
+          product.count = product.count - 1;
+          return setPedido([...pedido]);
+        }
+      }
+    });
+  };
 
   return (
     <div className="waiter">
@@ -54,7 +64,7 @@ function Waiter() {
                       <td className="table-order-product">{product.nombre}</td>
                       <td className="table-order-product">S/{product.precio}.00</td>
                       <td className="table-order-product">
-                        <button className="btn-order-trash" onClick={() => deleteTrash(index)}></button>
+                        <button className="btn-order-trash" onClick={() => deleteTrash(product.id)}></button>
                       </td>
                     </tr>
                   ))
@@ -62,7 +72,7 @@ function Waiter() {
               </tbody>
             </table>
             <section className="table-order-total">
-              TOTAL: S/ {pedido.length>0  && pedido.reduce((a,b)=>(a+b.precio), 0)}.00
+              Total: S/ {pedido.reduce((accumulator, value) => accumulator + Number(value.precio) * Number(value.count),0)}.00
             </section>
             <section className="btn-send-order">
               <ModalCancel />
