@@ -6,6 +6,7 @@ function AddProducts({ productList, pedido, setPedido }) {
     console.log("products", products);
     if (pedido.find((obj) => obj.id === products.id)) {
       console.log(pedido, products);
+      // eslint-disable-next-line array-callback-return
       pedido.map((p) => {
         if (p.id === products.id) {
           p.count = p.count + 1;
