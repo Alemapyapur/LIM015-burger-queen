@@ -46,33 +46,35 @@ function Waiter() {
           </div>
 
           <section className="order-box-list">
-            <table className="order">
-              <thead className="table-order">
-                <tr className="table-order-titles">
-                  <th className="table-order-title1">Cantidad</th>
-                  <th className="table-order-title2">Nombre</th>
-                  <th className="table-order-title3">Price</th>
-                  <th className="table-order-title4">Eliminar</th>
-                </tr>
-              </thead>
-              <tbody className="table-order-product-order">
-                {
-                  pedido.length > 0 && pedido.map((product, index) => (
-                    <tr className="table-product-order" key={product.id}>
-                      {/* <p>{cantidad}</p> */}
-                      <td className="table-order-product">{product.count}</td>
-                      <td className="table-order-product">{product.nombre}</td>
-                      <td className="table-order-product">S/{product.precio}.00</td>
-                      <td className="table-order-product">
-                        <button className="btn-order-trash" onClick={() => deleteTrash(product.id)}></button>
-                      </td>
-                    </tr>
-                  ))
-                }
-              </tbody>
-            </table>
+            <div className="scroll">
+              <table className="order">
+                <thead className="table-order">
+                  <tr className="table-order-titles">
+                    <th className="table-order-title1">Cantidad</th>
+                    <th className="table-order-title2">Nombre</th>
+                    <th className="table-order-title3">Price</th>
+                    <th className="table-order-title4">Eliminar</th>
+                  </tr>
+                </thead>
+                <tbody className="table-order-product-order">
+                  {
+                    pedido.length > 0 && pedido.map((product, index) => (
+                      <tr className="table-product-order" key={product.id}>
+                        {/* <p>{cantidad}</p> */}
+                        <td className="table-order-product">{product.count}</td>
+                        <td className="table-order-product">{product.nombre}</td>
+                        <td className="table-order-product">S/{product.precio}.00</td>
+                        <td className="table-order-product">
+                          <button className="btn-order-trash" onClick={() => deleteTrash(product.id)}></button>
+                        </td>
+                      </tr>
+                    ))
+                  }
+                </tbody>
+              </table>
+            </div>
             <section className="table-order-total">
-              Total: S/ {pedido.reduce((accumulator, value) => accumulator + Number(value.precio) * Number(value.count),0)}.00
+              Total: S/ {pedido.reduce((accumulator, value) => accumulator + Number(value.precio) * Number(value.count), 0)}.00
             </section>
             <section className="btn-send-order">
               <ModalCancel />
