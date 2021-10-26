@@ -31,3 +31,4 @@ function AddProducts({ productList, pedido, setPedido }) {
 }
 
 export default AddProducts;
+

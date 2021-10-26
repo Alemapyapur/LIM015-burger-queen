@@ -15,7 +15,6 @@
 
 .kitchen-box-table{
   text-align: center;
-  /* padding: 20px 0px 20px 0px; */
 }
 
 .table-kitchen-total{
@@ -26,7 +25,7 @@
   padding: 10px 0px 10px 0px;
 }
 
-.btn-order {
+.btn-order-kitchen {
   grid-area: btn-order;
   margin: 20px;
   display: flex;
@@ -36,18 +35,36 @@
 
 .btn-order-kitchen-delivery, .btn-order-kitchen-send{
   border: none;
-  background:#efb953;
-  border-radius: 15px 15px 0px 0px;
   font-size: 16px;
-  color: #b21515;
+  color: white;
   font-weight: bolder;
   padding: 8px 6px 8px 6px;
+  border: 2px solid #b21515;
+  background: #efb953;
+  color: #b21515;
 }
 
-.btn-order-kitchen-delivery:hover, .btn-order-kitchen-send:hover{
-  color: white;
-  background: #b21515;
+.btn-order-kitchen-delivery {
+  border-radius: 15px 0px 0px 15px;
 }
+
+.btn-order-kitchen-send {
+  border-radius: 0px 15px 15px 0px;
+  border-left: 2px;
+}
+
+.btn-order-kitchen-delivery:hover {
+  background:#31ac0c;
+  border: solid #31ac0c;
+  color: white;
+}
+
+.btn-order-kitchen-send:hover {
+  border: solid #b21515;
+  background:#b21515;
+  color:white;
+}
+
 
 .card-order {
   display: grid;

@@ -29,7 +29,7 @@
   color: #b21515;
 }
 
-.box-client-table, .btn-order{
+.box-client-table{
   margin-bottom: 10px;
 }
 
@@ -55,11 +55,11 @@
 .btn-order-waiter {
   border: 1px;
   background-color: #e69f13a8;
-  margin: 5px;
   padding: 8px;
   color: #b21515;
-  border-radius: 10px;
   font-weight: bolder;
+  border-radius: 15px 15px 0px 0px;
+  width: 150px;
 }
 
 .btn-order-waiter:hover {
@@ -95,7 +95,8 @@
   font-size: .9em;
   color: #b21515;
   text-align: center;
-  background-color: #e69f13a8;
+  /* background-color: #e69f13a8; */
+  background-color: rgba(255, 255, 255, 0.788);
   border-radius: 20px;
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
 }
@@ -164,7 +165,6 @@
     "table-order-total"
     "btn-send-order";
   grid-area: order-box-list;
-
 }
 
 .order {
@@ -227,7 +227,10 @@
 
 .btn-order {
   grid-area: btn-order;
-  justify-items:stretch;
+  /* justify-items:start ; */
+  /* margin-left: 10px; */
+  display: flex;
+  justify-content: space-between;
 }
 
 .order-container-list {
@@ -236,5 +239,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 5px;
   justify-items: center;
+  background-color: #e69f13a8;
+  border-radius: 0px 0px 15px 15px;
 }
 
