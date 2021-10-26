@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Modal from "./modalOrderConfirm"
+import "../../styles/menu/modalCancel.css"
 
 
 const ModalConfirm = () => {
@@ -15,9 +16,11 @@ const ModalConfirm = () => {
                 CONFIRMAR
             </button>
             <Modal active={active} toggle={toggle}>
-                <h5>¿Deseas enviar el pedido?</h5>
+                <h5 className="text-modal">¿Deseas enviar el pedido?</h5>
+                <section className="butons-modal">
                 <button onClick={toggle}>Cancelar</button>
                 <button>Enviar</button>
+                </section>
             </Modal>
         </>
     )

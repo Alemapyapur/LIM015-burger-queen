@@ -1,0 +1,12 @@
+.text-modal {
+    text-align: center;
+    padding-top: 4%;
+}
+
+.butons-modal {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 10px;
+    justify-items: center;
+}
