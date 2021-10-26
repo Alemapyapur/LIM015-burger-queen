@@ -104,9 +104,9 @@ function Kitchen() {
                   {
                     // pedido.length > 0 && pedido.map((product, index) => (
                     <tr className="table-kitchen-order">
-                      <td className="table-kitchen-product">2</td>
+                      <td className="table-kitchen-product">1</td>
                       <td className="table-kitchen-product">Cafe Americano</td>
-                      <td className="table-kitchen-product">S/ 14.00</td>
+                      <td className="table-kitchen-product">S/ 7.00</td>
                     </tr>
                     // ))
                   }
@@ -174,8 +174,8 @@ function Kitchen() {
                     // pedido.length > 0 && pedido.map((product, index) => (
                     <tr className="table-kitchen-order">
                       <td className="table-kitchen-product">2</td>
-                      <td className="table-kitchen-product">Cafe Americano</td>
-                      <td className="table-kitchen-product">S/ 14.00</td>
+                      <td className="table-kitchen-product">Cafe Capuccino</td>
+                      <td className="table-kitchen-product">S/ 10.00</td>
                     </tr>
                     // ))
                   }
