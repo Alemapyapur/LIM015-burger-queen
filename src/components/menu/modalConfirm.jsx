@@ -16,7 +16,9 @@ const ModalConfirm = () => {
                 CONFIRMAR
             </button>
             <Modal active={active} toggle={toggle}>
-                <h1>modal works</h1>
+                <h5>¿Deseas enviar el pedido?</h5>
+                <button onClick={toggle}>Cancelar</button>
+                <button>Enviar</button>
             </Modal>
         </>
     )

@@ -7,22 +7,25 @@ import OrderProduct from "../orders/OrderProduct";
 import { useState } from "react";
 import ModalConfirm from "../menu/modalConfirm";
 
-function Waiter({}) {
+function Waiter({cantidad}) {
   const [pedido, setPedido] = useState([]);
+  // const [cantidad, setCantidad] = useState(1);
   console.log(pedido);
-  const deleteTrash = (index) =>{
-const deleteItem = pedido.filter((product,i)=>index!==i)
-console.log(deleteItem);
-return setPedido(deleteItem);
-  }   
+  const deleteTrash = (index) => {
+    const deleteItem = pedido.filter((product, i) => index !== i)
+    console.log(deleteItem);
+    return setPedido(deleteItem);
+  }
+
+  // const contar = () => {
+  //   setCantidad(cantidad + 1)
+  // }
+
   return (
     <div className="waiter">
-      {/* PARTE DE NAV */}
       <>
         <NavBar />
       </>
-
-      {/* PARTE DONDE INGRESA EL NOMBRE DEL CLIENTE Y EL NUMERO DE MESA */}
       <div className="padre">
         <section className="temp-waiter side">
           <div>
@@ -48,33 +51,34 @@ return setPedido(deleteItem);
               </thead>
               <tbody>
                 {
-                  pedido.length > 0 && pedido.map((product,index) => (
+                  pedido.length > 0 && pedido.map((product, index) => (
                     <tr className="table-product-order" key={product.id}>
-                      <td className="table-order-product">{product.count}</td>
+                      {/* <p>{cantidad}</p>
+                      <td className="table-order-product">{product.count}</td> */}
+                      <td className="table-order-product">{product.nombre}</td>
                       <td className="table-order-product">{product.nombre}</td>
                       <td className="table-order-product">{product.precio}</td>
                       <td className="table-order-product">
                         <button className="btn-order-trash" onClick={() => deleteTrash(index)}></button>
-                        
+
                       </td>
                     </tr>
                   ))
                 }
               </tbody>
-              </table>
-              <section className="table-order-title">TOTAL:$ {pedido.length>0  && pedido.reduce((a,b)=>(a+b.precio), 0)}</section>
-              
+            </table>
+            <section className="table-order-title">TOTAL:$ {pedido.length > 0 && pedido.reduce((a, b) => (a + b.precio), 0)}</section>
+
             <div className="btn-send-order">
               <button className="btn-order-red">
                 <ModalOrderCancel />
               </button>
-                <ModalConfirm />
+              <ModalConfirm />
             </div>
           </section>
         </section>
         <OrderProduct setPedido={setPedido} pedido={pedido} />
       </div>
-      {/* FOOTER DE LA PAGINA */}
       <div>
         <Footer />
       </div>

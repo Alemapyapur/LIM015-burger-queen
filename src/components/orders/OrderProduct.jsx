@@ -4,17 +4,13 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import AddProducts from './addProducts'
 import "../../styles/pages/waiter.css";
 
-export default function OrderProduct({setPedido,pedido}) {
-  
-  const [arrayProductList, setArrayProductList] = useState([]);
-  const [type, setType] = useState("breakfast");
-  // const [pedido, setPedido] = useState([]);
+export default function OrderProduct({ setPedido, pedido }) {
 
-  // const moreClick = (products) => {
-  //     console.log('products', products)
-  //     setPedido([...pedido, products])
-  // };
-  
+  const [arrayProductList, setArrayProductList] = useState([]);
+  const [cantidad, setCantidad] = useState(0);
+
+  const [type, setType] = useState("breakfast");
+
 
   const getProductsFirebase = async (type) => {
     const arrayProduct = [];
@@ -34,8 +30,8 @@ export default function OrderProduct({setPedido,pedido}) {
     }
     fetchList();
   }, [type]);
-  
-  
+
+
 
   return (
     <section className="temp-waiter">
@@ -59,11 +55,11 @@ export default function OrderProduct({setPedido,pedido}) {
               <p className="text-order">S/. {item.price}.00</p>
               <img className="img-product" alt='img-burguerqueen' src={item.URL}></img>
               <p className="text-order">{item.name}</p>
-              {/* <section> <AddProducts /> </section> */}
-              <div className="btn--order">
-            {/* <button onClick={() => moreClick(item)}> Agregar</button> */}
-            <section><AddProducts productList={productList}setPedido={setPedido} pedido={pedido}/></section>
-        </div>
+              <div className="btn--order" onClick={() => setCantidad(cantidad + 1)}>
+                <section><AddProducts productList={productList} setPedido={setPedido} pedido={pedido} /></section>
+              </div>
+
+              <p>cantidad = {cantidad}</p>
             </div>
           );
         })}
