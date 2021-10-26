@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/pages/waiter.css";
 
 function AddProducts({ productList, pedido, setPedido }) {
-const moreClick = (products) => {
+  const moreClick = (products) => {
     console.log("products", products);
     if (pedido.find((obj) => obj.id === products.id)) {
       console.log(pedido, products);

@@ -1,15 +1,16 @@
+import { useState } from "react";
+import ModalCancel from "../menu/modalCancel";
+import ModalConfirm from "../menu/modalConfirm";
+import OrderProduct from "../orders/OrderProduct";
 import NavBar from "../nav-footer/navBar";
 import Footer from "../nav-footer/footer";
 import "../../styles/pages/waiter.css";
-// import ModalOrderConfirm from "../menu/modalOrderConfirm";
-import ModalOrderCancel from "../menu/modalCancel";
-import OrderProduct from "../orders/OrderProduct";
-import { useState } from "react";
-import ModalConfirm from "../menu/modalConfirm";
+
 
 function Waiter() {
   const [pedido, setPedido] = useState([]);
-  // console.log(pedido);
+  // const [cantidad, setCantidad] = useState(1);
+  //console.log(pedido);
   const deleteTrash = (index) => {
     pedido.map((product, i) => {
       if (product.id === index) {
@@ -24,74 +25,71 @@ function Waiter() {
       }
     });
   };
+
   return (
     <div className="waiter">
-      {/* PARTE DE NAV */}
       <>
         <NavBar />
       </>
-
-      {/* PARTE DONDE INGRESA EL NOMBRE DEL CLIENTE Y EL NUMERO DE MESA */}
       <div className="padre">
-        <section className="temp-waiter side">
-          <div>
+        <section className="section-side-left">
+          <div className="box-client-table">
             <section className="dataClient">
-              <p>NOMBRE DEL CLIENTE:</p>
-              <input type="text" className="text" />
+              <p className="dataClient-text">NOMBRE DEL CLIENTE:</p>
+              <input type="text" className="name-box" />
             </section>
             <section className="dataClient">
-              <p>NUMERO DE MESA:</p>
-              <input type="text" className="text" />
+              <p className="dataClient-text">NUMERO DE MESA:</p>
+              <input type="text" className="name-box" />
             </section>
           </div>
 
-          <section>
+          <section className="order-box-list">
             <table className="order">
-              <thead className="table">
-                <tr className="table-order">
-                  <th className="table-order-title">Cantidad</th>
-                  <th className="table-order-title">Nombre</th>
-                  <th className="table-order-title">Price</th>
-                  <th className="table-order-title">Eliminar</th>
+              <thead className="table-order">
+                <tr className="table-order-titles">
+                  <th className="table-order-title1">Cantidad</th>
+                  <th className="table-order-title2">Nombre</th>
+                  <th className="table-order-title3">Price</th>
+                  <th className="table-order-title4">Eliminar</th>
                 </tr>
               </thead>
-              <tbody>
-                {pedido.length > 0 &&
-                  pedido.map((product, index) => (
+              <tbody className="table-order-product-order">
+                {
+                  pedido.length > 0 && pedido.map((product, index) => (
                     <tr className="table-product-order" key={product.id}>
+                      {/* <p>{cantidad}</p> */}
                       <td className="table-order-product">{product.count}</td>
                       <td className="table-order-product">{product.nombre}</td>
-                      <td className="table-order-product">{product.precio}</td>
+                      <td className="table-order-product">S/{product.precio}.00</td>
                       <td className="table-order-product">
-                        <button
-                          className="btn-order-trash"
-                          onClick={() => deleteTrash(product.id)}
-                        ></button>
+                        <button className="btn-order-trash" onClick={() => deleteTrash(product.id)}></button>
                       </td>
                     </tr>
-                  ))}
+                  ))
+                }
               </tbody>
             </table>
-            <section className="table-order-title">
-              TOTAL:${" "}
-              {pedido.length > 0 && pedido.reduce((a, b) => a + b.precio, 0)}
+            <section className="table-order-total">
+              TOTAL: S/ {pedido.length>0  && pedido.reduce((a,b)=>(a+b.precio), 0)}.00
             </section>
-            <div className="btn-send-order">
-              <button className="btn-order-red">
-                <ModalOrderCancel />
-              </button>
+            <section className="btn-send-order">
+              <ModalCancel />
               <ModalConfirm />
-            </div>
+            </section>
           </section>
         </section>
-        <OrderProduct setPedido={setPedido} pedido={pedido} />
+
+        <section>
+          <OrderProduct setPedido={setPedido} pedido={pedido} />
+        </section>
       </div>
-      {/* FOOTER DE LA PAGINA */}
       <div>
         <Footer />
       </div>
     </div>
   );
 }
+
 
 export default Waiter;
