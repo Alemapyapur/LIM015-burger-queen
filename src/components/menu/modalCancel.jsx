@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Modal from "./modalOrderConfirm"
 
 
-const ModalConfirm = () => {
+const ModalCancel = () => {
     const [active, setActive] = useState(false);
 
     const toggle = () => {
@@ -12,15 +12,15 @@ const ModalConfirm = () => {
     return (
         <>
             <button  onClick={toggle}>
-                CONFIRMAR
+                CANCELAR
             </button>
             <Modal active={active} toggle={toggle}>
-                <h5>¿Deseas enviar el pedido?</h5>
+                <h5>¿Deseas cancelar el pedido?</h5>
                 <button onClick={toggle}>Cancelar</button>
-                <button>Enviar</button>
+                <button>Aceptar</button>
             </Modal>
         </>
     )
 }
 
-export default ModalConfirm;
+export default ModalCancel;

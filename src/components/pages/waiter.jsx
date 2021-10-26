@@ -2,7 +2,7 @@ import NavBar from "../nav-footer/navBar";
 import Footer from "../nav-footer/footer";
 import "../../styles/pages/waiter.css";
 // import ModalOrderConfirm from "../menu/modalOrderConfirm";
-import ModalOrderCancel from "../menu/modalOrderCancel";
+import ModalCancel from "../menu/modalCancel";
 import OrderProduct from "../orders/OrderProduct";
 import { useState } from "react";
 import ModalConfirm from "../menu/modalConfirm";
@@ -71,7 +71,7 @@ function Waiter({cantidad}) {
 
             <div className="btn-send-order">
               <button className="btn-order-red">
-                <ModalOrderCancel />
+                <ModalCancel />
               </button>
               <ModalConfirm />
             </div>

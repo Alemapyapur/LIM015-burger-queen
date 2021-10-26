@@ -7,7 +7,6 @@ import "../../styles/pages/waiter.css";
 export default function OrderProduct({ setPedido, pedido }) {
 
   const [arrayProductList, setArrayProductList] = useState([]);
-  const [cantidad, setCantidad] = useState(0);
 
   const [type, setType] = useState("breakfast");
 
@@ -55,11 +54,9 @@ export default function OrderProduct({ setPedido, pedido }) {
               <p className="text-order">S/. {item.price}.00</p>
               <img className="img-product" alt='img-burguerqueen' src={item.URL}></img>
               <p className="text-order">{item.name}</p>
-              <div className="btn--order" onClick={() => setCantidad(cantidad + 1)}>
+              <div className="btn--order">
                 <section><AddProducts productList={productList} setPedido={setPedido} pedido={pedido} /></section>
               </div>
-
-              <p>cantidad = {cantidad}</p>
             </div>
           );
         })}
