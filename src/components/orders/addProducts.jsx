@@ -7,8 +7,6 @@ function AddProducts({ productList, pedido , setPedido }) {
     const moreClick = (products) => {
         console.log('products', products)
         setPedido([...pedido, products])
-        
-        
     };
     
 

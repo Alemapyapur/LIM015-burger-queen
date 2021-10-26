@@ -42,6 +42,7 @@ export default function OrderProduct({ setPedido, pedido }) {
       <div className="order-container-list">
         {arrayProductList.map((item, index) => {
           //console.log('type', type);
+          
           const productList = {
             nombre: item.name,
             precio: item.price

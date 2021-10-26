@@ -16,7 +16,7 @@ function Waiter() {
     console.log(deleteItem);
     return setPedido(deleteItem);
   }
-  
+
   return (
     <div className="waiter">
       <>
@@ -49,9 +49,8 @@ function Waiter() {
                 {
                   pedido.length > 0 && pedido.map((product, index) => (
                     <tr className="table-product-order" key={product.id}>
-                      {/* <p>{cantidad}</p>
-                      <td className="table-order-product">{product.count}</td> */}
-                      <td className="table-order-product">{product.nombre}</td>
+                      {/* <p>{cantidad}</p> */}
+                      <td className="table-order-product">{product.count}</td>
                       <td className="table-order-product">{product.nombre}</td>
                       <td className="table-order-product">S/{product.precio}.00</td>
                       <td className="table-order-product">
@@ -63,7 +62,7 @@ function Waiter() {
               </tbody>
             </table>
             <section className="table-order-total">
-              TOTAL: S/ {pedido.length>0  && pedido.reduce((a,b)=>(a+b.precio), 0)}.00
+              TOTAL: S/ {pedido.length > 0 && pedido.reduce((a, b) => (a + b.precio), 0)}.00
             </section>
             <section className="btn-send-order">
               <ModalCancel />
