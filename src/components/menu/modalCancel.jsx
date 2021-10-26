@@ -11,6 +11,7 @@ const ModalCancel = () => {
 
     return (
         <>
+
             <button  onClick={toggle}>
                 CANCELAR
             </button>
@@ -24,3 +25,4 @@ const ModalCancel = () => {
 }
 
 export default ModalCancel;
+

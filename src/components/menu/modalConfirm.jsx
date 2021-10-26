@@ -11,7 +11,7 @@ const ModalConfirm = () => {
 
     return (
         <>
-            <button  onClick={toggle}>
+            <button className="btn-order-green" onClick={toggle}>
                 CONFIRMAR
             </button>
             <Modal active={active} toggle={toggle}>

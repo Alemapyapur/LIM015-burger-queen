@@ -4,12 +4,12 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import AddProducts from './addProducts'
 import "../../styles/pages/waiter.css";
 
+
 export default function OrderProduct({ setPedido, pedido }) {
 
   const [arrayProductList, setArrayProductList] = useState([]);
 
   const [type, setType] = useState("breakfast");
-
 
   const getProductsFirebase = async (type) => {
     const arrayProduct = [];
@@ -30,15 +30,13 @@ export default function OrderProduct({ setPedido, pedido }) {
     fetchList();
   }, [type]);
 
-
-
   return (
-    <section className="temp-waiter">
+    <section className="section-side-right">
       <section className="btn-order">
-        <button className="btn-roder-waiter" onClick={() => setType('breakfast')}>DESAYUNOS</button>
-        <button className="btn-roder-waiter" onClick={() => setType('dinner')}>HAMBURGUESAS</button>
-        <button className="btn-roder-waiter" onClick={() => setType('addfood')}>ACOMPAÑAMIENTOS</button>
-        <button className="btn-roder-waiter" onClick={() => setType('drink')}>BEBIDAS</button>
+        <button className="btn-order-waiter" onClick={() => setType('breakfast')}>DESAYUNOS</button>
+        <button className="btn-order-waiter" onClick={() => setType('dinner')}>HAMBURGUESAS</button>
+        <button className="btn-order-waiter" onClick={() => setType('addfood')}>ACOMPAÑAMIENTOS</button>
+        <button className="btn-order-waiter" onClick={() => setType('drink')}>BEBIDAS</button>
       </section>
 
       <div className="order-container-list">
@@ -51,7 +49,7 @@ export default function OrderProduct({ setPedido, pedido }) {
 
           return (
             <div className="order-container" >
-              <p className="text-order">S/. {item.price}.00</p>
+              <p className="text-order">S/ {item.price}.00</p>
               <img className="img-product" alt='img-burguerqueen' src={item.URL}></img>
               <p className="text-order">{item.name}</p>
               <div className="btn--order">

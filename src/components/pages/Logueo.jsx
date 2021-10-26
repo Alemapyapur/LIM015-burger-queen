@@ -22,12 +22,13 @@ const Logueo = () => {
     signInWithEmailAndPassword(auth, correo, contra)
       .then((userCredential) => {
         // Signed in
+        // eslint-disable-next-line no-unused-vars
         const user = userCredential.user;
         // ...
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+        // const errorCode = error.code;
+        // const errorMessage = error.message;
       });
 
   }

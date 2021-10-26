@@ -1,63 +1,99 @@
-.kitchen {
-  height: 100vh;
-  background-color: rgb(230 159 19 / 63%);
-  background-image: url(../../img/fondo-posible.png);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+.kitchen-view {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.3fr 1.4fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "btn-order"
+    "card-order";
 }
 
+.nombre-kitchen, .hora-kitchen{
+  margin: 0px;
+}
 
-.order-kitchen {
+.kitchen-box-table{
+  text-align: center;
+  /* padding: 20px 0px 20px 0px; */
+}
+
+.table-kitchen-total{
+  text-align: right;
+  padding: 20px 0px 20px 0px;
+}
+.kitchen-box{
+  padding: 10px 0px 10px 0px;
+}
+
+.btn-order {
+  grid-area: btn-order;
+  margin: 20px;
   display: flex;
-  align-content: space-between;
-  border: #00000033 2px solid;
-  height: 450px;
-  width: 500px;
-  background-color: #fee253;
-  justify-content: space-evenly;
-  
+	justify-content:center;
+	align-items:center;
 }
 
-/* .padre-kitchen {
-  display: flex;
-  justify-content: flex-end;
-
-  height: 100%;
-} */
-.temp-kitchen {
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  margin-top: 20px;
-  
+.btn-order-kitchen-delivery, .btn-order-kitchen-send{
+  border: none;
+  background:#efb953;
+  border-radius: 15px 15px 0px 0px;
+  font-size: 16px;
+  color: #b21515;
+  font-weight: bolder;
+  padding: 8px 6px 8px 6px;
 }
 
-.ordertwo-kitchen{
-  display: flex;
-  align-content: space-between;
-  border: #00000033 2px solid;
-  height: 450px;
-  width: 500px;
-  background-color:#fee253;
-  justify-content: space-evenly;
-  
+.btn-order-kitchen-delivery:hover, .btn-order-kitchen-send:hover{
+  color: white;
+  background: #b21515;
 }
 
-.container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 20px;
-  
+.card-order {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px 10px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "card-order-container card-order-container2 card-order-container3"
+    "card-order-container4 card-order-container5 .";
+  grid-area: card-order;
+  justify-items: center;
 }
 
-.btn-order-green, .btn-order-red{
-  display: flex;
-	flex-direction:row-reverse;
-	justify-content:flex-end;
+.card-order-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.2fr 0.2fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "nombre-kitchen"
+    "hora-kitchen"
+    "tabla-kitchen";
+  grid-area: card-order-container;
 }
 
-.orden-kitchen-btn{
-  padding-top: 350px;
+.btn-kitchen-send-order{
+  border:none;
+  background-color: green;
+  font-weight: bolder;
+  color:white;
+  font-size: 16px;
+  border-radius: 15px;
+  text-align: center;
 }
+
+.card-order-container, .card-order-container2, .card-order-container3, .card-order-container4, .card-order-container5 {
+  border-radius: 15px;
+  padding: 20px;
+  height: 250px;
+  background-color: #efb953;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+}
+
+.card-order-container2 { grid-area: card-order-container2 }
+.card-order-container3 { grid-area: card-order-container3 }
+.card-order-container4 { grid-area: card-order-container4 }
+.card-order-container5 { grid-area: card-order-container5 }
