@@ -1,38 +1,66 @@
-// import { useState } from 'react';
+import React from "react";
+import "../../styles/pages/waiter.css";
+import ModalCancel from "../menu/modalCancel";
+import ModalConfirm from "../menu/modalConfirm";
 
-// ************************** INTENTO DE TABLA *********************** //
+function OrderWaiter({ setPedido, pedido }) {
+    
+    const deleteTrash = (index) => {
+        // eslint-disable-next-line array-callback-return
+        pedido.map((product, i) => {
+            if (product.id === index) {
+                if (product.count === 1) {
+                    const deleteId = pedido.filter((product) => product.id !== index);
+                    console.log(deleteId, "eliminar");
+                    setPedido(deleteId);
+                } else {
+                    product.count = product.count - 1;
+                    return setPedido([...pedido]);
+                }
+            }
+        });
+    };
 
-// function OrderWaiter () {
-//   const [usuario, setUsuarios ] = useState([
-//     { id: 1, name: "Cafe simple", price: "5" },
-//     { id: 1, name: "Cafe doble", price: "5" },
-//     { id: 1, name: "Cafe capuchino", price: "5" } ,
-//   ]);
 
+    return (
 
+        <section className="order-box-list">
+            <div className="scroll">
+                <table className="order">
+                    <thead className="table-order">
+                        <tr className="table-order-titles">
+                            <th className="table-order-title1">Cantidad</th>
+                            <th className="table-order-title2">Nombre</th>
+                            <th className="table-order-title3">Price</th>
+                            <th className="table-order-title4">Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody className="table-order-product-order">
+                        {
+                            pedido.length > 0 && pedido.map((product, index) => (
+                                <tr className="table-product-order" key={product.id}>
+                                    <td className="table-order-product">{product.count}</td>
+                                    <td className="table-order-product">{product.nombre}</td>
+                                    <td className="table-order-product">S/{product.precio}.00</td>
+                                    <td className="table-order-product">
+                                        <button className="btn-order-trash" onClick={() => deleteTrash(product.id)}></button>
+                                    </td>
+                                </tr>
+                            ))
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <section className="table-order-total">
+                Total: S/ {pedido.reduce((accumulator, value) => accumulator + Number(value.precio) * Number(value.count), 0)}.00
+            </section>
+            {/* <input type= "text " /> */}
+            <section className="btn-send-order">
+                <ModalCancel />
+                <ModalConfirm />
+            </section>
+        </section>
+    );
+}
 
-//     <table>
-//       <thead>
-//         <tr>
-//         <th>Cantidad</th>
-//         <th>Nombre</th>
-//         <th>Price</th>
-
-//         </tr>
-//       </thead>
-
-//       <tbody>
-//         {usuario.map(usuario=>(
-//           <tr>
-//             <th>{usuario.id}</th>
-//             <th>{usuario.name}</th>
-//             <th>{usuario.price}</th>
-
-//           </tr>
-//         ))}
-//       </tbody>
-//     </table>
-//   )
-// };
-
-// export default OrderWaiter;
+export default OrderWaiter;
