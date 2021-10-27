@@ -165,12 +165,14 @@
     "table-order-total"
     "btn-send-order";
   grid-area: order-box-list;
+  height: 25em;
 }
 
 .order {
-  background-color: #e69f13a8;
+  /* background-color: #e69f13a8; */
   font-size: 18px;
-  border-radius: 15px 15px 0px 0px ;
+  border-radius: 15px 15px 0px 0px;
+  width: 100%;
 }
 
 .table-order-total {
@@ -243,3 +245,8 @@
   border-radius: 0px 0px 15px 15px;
 }
 
+.scroll {
+  background: #efb953;
+  overflow: auto;
+  border-radius: 15px 15px 0 0;
+}
