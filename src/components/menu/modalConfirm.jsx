@@ -6,8 +6,6 @@ import SendOrder from '../../fb-function';
 
 const ModalConfirm = ({name, table}) => {
     const [active, setActive] = useState(false);
-    // const [name, setName] = useState("");
-    // const [table, setTable] = useState();
 
     const toggle = () => {
         setActive(!active)

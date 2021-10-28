@@ -5,6 +5,8 @@ import Footer from "../nav-footer/footer";
 import OrderWaiter from "../orders/orderWaiter";
 import "../../styles/pages/waiter.css";
 import ClientData from "../orders/ClientData";
+import ModalCancel from "../menu/modalCancel";
+import ModalConfirm from "../menu/modalConfirm";
 
 
 function Waiter() {
@@ -30,13 +32,14 @@ function Waiter() {
               <p className="dataClient-text">NUMERO DE MESA:</p>
               <input type="text" className="name-box" value={table} onChange={(e) => { setTable(e.target.value) }} />
             </section> */}
-            <ClientData name={name} setName={setName} table={table} setTable={setTable}/>
+            <ClientData name={name} setName={setName} table={table} setTable={setTable} />
           </div>
-
           <OrderWaiter setPedido={setPedido} pedido={pedido} name={name} table={table} />
-
         </section>
-
+        <section className="btn-send-order">
+          <ModalCancel />
+          <ModalConfirm name={name} table={table} />
+        </section>
         <section>
           <OrderProduct setPedido={setPedido} pedido={pedido} />
         </section>
