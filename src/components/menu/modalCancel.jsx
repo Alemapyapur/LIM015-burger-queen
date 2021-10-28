@@ -19,8 +19,8 @@ const ModalCancel = () => {
             <Modal active={active} toggle={toggle}>
                 <h5 className="text-modal">¿Deseas cancelar el pedido?</h5>
                 <section className="butons-modal">
-                    <button onClick={toggle}>Cancelar</button>
-                    <button>Aceptar</button>
+                    <button className="buttonCancel" onClick={toggle}>Cancelar</button>
+                    <button className="buttonAccept">Aceptar</button>
                 </section>
             </Modal>
         </>

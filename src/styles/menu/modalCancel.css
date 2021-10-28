@@ -1,12 +1,28 @@
 .text-modal {
-    text-align: center;
-    padding-top: 4%;
+  text-align: center;
+  padding-top: 4%;
 }
 
 .butons-modal {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    gap: 10px;
-    justify-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 10px;
+  justify-items: center;
+  padding-top: 38px;
+}
+
+.buttonAccept, .buttonCancel {
+  border: none;
+  background: none;
+  border: 1 px;
+  background-color: rgb(56, 172, 56);
+  color: white;
+  font-weight: bolder;
+  border-radius: 5px;
+  width: 90px;
+}
+
+.buttonCancel {
+  background-color: rgb(206, 61, 61) !important;
 }

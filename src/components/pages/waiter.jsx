@@ -4,11 +4,12 @@ import NavBar from "../nav-footer/navBar";
 import Footer from "../nav-footer/footer";
 import OrderWaiter from "../orders/orderWaiter";
 import "../../styles/pages/waiter.css";
+import ClientData from "../orders/ClientData";
 
 
 function Waiter() {
   const [pedido, setPedido] = useState([]);
-  const [name, setName] = useState();
+  const [name, setName] = useState("");
   const [table, setTable] = useState();
 
   console.log(name, table)
@@ -21,17 +22,18 @@ function Waiter() {
       <div className="padre">
         <section className="section-side-left">
           <div className="box-client-table">
-            <section className="dataClient">
+            {/* <section className="dataClient">
               <p className="dataClient-text">NOMBRE DEL CLIENTE:</p>
               <input type="text" className="name-box" value={name} onChange={(e) => { setName(e.target.value) }} />
             </section>
             <section className="dataClient">
               <p className="dataClient-text">NUMERO DE MESA:</p>
               <input type="text" className="name-box" value={table} onChange={(e) => { setTable(e.target.value) }} />
-            </section>
+            </section> */}
+            <ClientData name={name} setName={setName} table={table} setTable={setTable}/>
           </div>
 
-          <OrderWaiter setPedido={setPedido} pedido={pedido} />
+          <OrderWaiter setPedido={setPedido} pedido={pedido} name={name} table={table} />
 
         </section>
 
