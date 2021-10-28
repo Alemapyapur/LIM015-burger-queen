@@ -3,7 +3,7 @@ import "../../styles/pages/waiter.css";
 import ModalCancel from "../menu/modalCancel";
 import ModalConfirm from "../menu/modalConfirm";
 
-function OrderWaiter({ setPedido, pedido }) {
+function OrderWaiter({ setPedido, pedido, name, table }) {
     
     const deleteTrash = (index) => {
         // eslint-disable-next-line array-callback-return
@@ -20,7 +20,6 @@ function OrderWaiter({ setPedido, pedido }) {
             }
         });
     };
-
 
     return (
 
@@ -57,7 +56,7 @@ function OrderWaiter({ setPedido, pedido }) {
             {/* <input type= "text " /> */}
             <section className="btn-send-order">
                 <ModalCancel />
-                <ModalConfirm />
+                <ModalConfirm name={name} table={table}/>
             </section>
         </section>
     );
