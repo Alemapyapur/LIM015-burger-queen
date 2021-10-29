@@ -8,7 +8,6 @@ import "../../styles/pages/waiter.css";
 export default function OrderProduct({ setPedido, pedido }) {
 
   const [arrayProductList, setArrayProductList] = useState([]);
-
   const [type, setType] = useState("breakfast");
 
   const getProductsFirebase = async (type) => {
@@ -42,7 +41,6 @@ export default function OrderProduct({ setPedido, pedido }) {
       <div className="order-container-list">
         {arrayProductList.map((item, index) => {
           //console.log('type', type);
-          
           const productList = {
             id:item.id,
             nombre: item.name,
