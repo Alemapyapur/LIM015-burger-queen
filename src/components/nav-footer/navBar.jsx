@@ -18,9 +18,9 @@ function NavBar() {
       <Link className="title-nav2" to='/Kitchen'>
         PEDIDOS
       </Link>
-      <Link className="title-nav3" to='/Waiter'>
+      {/* <Link className="title-nav3" to='/Waiter'>
         PEDIDOS ENTREGADOS
-      </Link>
+      </Link> */}
       <Link className="btn-sign-out" onClick={() => signOut(auth)}>CERRAR SESIÓN</Link>
 
       {/* <button onClick={
