@@ -1,11 +1,11 @@
 .navBar {
   display: grid;
-  grid-template-columns: 0.3fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 0.3fr 1fr 1fr 1fr;
   grid-template-rows: 0.2fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
-    "nav-logo title-nav1 title-nav2 title-nav3 btn-sign-out";
+    "nav-logo title-nav1 title-nav2 btn-sign-out";
   justify-items: last baseline;
   background-color: #e69f13;
 }
@@ -20,9 +20,8 @@
 
 .title-nav1 { grid-area: title-nav1; }
 .title-nav2 { grid-area: title-nav2; }
-.title-nav3 { grid-area: title-nav3; }
 
-.title-nav1, .title-nav2, .title-nav3, .btn-sign-out {
+.title-nav1, .title-nav2, .btn-sign-out {
   font-size: 18px;
   color: #b21515;
   text-align: center;
@@ -31,7 +30,7 @@
   padding-top: 15px;
 }
 
-.title-nav1:hover, .title-nav2:hover, .title-nav3:hover, .btn-sign-out:hover {
+.title-nav1:hover, .title-nav2:hover, .btn-sign-out:hover {
   font-size: 18px;
   color: white;
   text-align: center;
