@@ -107,5 +107,7 @@
   height: 350px;
   background-color: #efb953;
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+  height: max-content;
+  width: max-content;
 }
 
