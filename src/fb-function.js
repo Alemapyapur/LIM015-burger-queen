@@ -6,14 +6,13 @@ import "./styles/menu/modalCancel.css"
 function SendOrder({ name, table, totalOrder, pedido}) {
 
   const sendOrders = () => {
-    debugger
     const docRef = addDoc(collection(db, "orders"), {
       name: name,
       table: table,
       status: 'pending',
       pedidos: pedido,
       order: totalOrder,
-      timestamp: serverTimestamp()
+      timestamp: new Date()
     }).then(() => {
       alert("Se envio el pedido")
     });

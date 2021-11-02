@@ -27,6 +27,7 @@ function WaiterOrders() {
     }
     fetchList();
   }, [pending]);
+  
   return (
     <div>
       <Navigation />
