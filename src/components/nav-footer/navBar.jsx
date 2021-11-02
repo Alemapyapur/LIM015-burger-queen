@@ -15,7 +15,7 @@ function NavBar() {
       <Link className="title-nav1" to='/Home'>
         HOME
       </Link>
-      <Link className="title-nav2" to='/Kitchen'>
+      <Link className="title-nav2" to='/Pedidos'>
         PEDIDOS
       </Link>
       {/* <Link className="title-nav3" to='/Waiter'>

@@ -8,6 +8,7 @@ import Waiter from './components/pages/waiter.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NotFound from './components/pages/notFound';
 import Login from './components/menu/Login';
+import WaiterOrders from './components/pages/waiterOrders';
 
 
 
@@ -37,6 +38,9 @@ const App = () => {
         </Route>
         <Route exact path='/Waiter'>
           <Waiter />
+        </Route>
+        <Route exact path='/Pedidos'>
+          <WaiterOrders />
         </Route>
         <Route path='*'>
           <NotFound />
