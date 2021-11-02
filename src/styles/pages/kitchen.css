@@ -73,8 +73,7 @@
   gap: 20px 10px;
   grid-auto-flow: row;
   grid-template-areas:
-    "card-order-container card-order-container2 card-order-container3"
-    "card-order-container4 card-order-container5 .";
+    "card-order-container";
   grid-area: card-order;
   justify-items: center;
 }
@@ -94,7 +93,7 @@
 
 .btn-kitchen-send-order{
   border:none;
-  background-color: green;
+  background-color: grey;
   font-weight: bolder;
   color:white;
   font-size: 16px;
@@ -102,15 +101,13 @@
   text-align: center;
 }
 
-.card-order-container, .card-order-container2, .card-order-container3, .card-order-container4, .card-order-container5 {
+.card-order-container {
   border-radius: 15px;
   padding: 20px;
-  height: 250px;
+  height: 350px;
   background-color: #efb953;
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+  height: max-content;
+  width: max-content;
 }
 
-.card-order-container2 { grid-area: card-order-container2 }
-.card-order-container3 { grid-area: card-order-container3 }
-.card-order-container4 { grid-area: card-order-container4 }
-.card-order-container5 { grid-area: card-order-container5 }
