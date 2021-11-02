@@ -40,7 +40,6 @@ export default function OrderList({ setPedido, pedido }) {
     <section className="kitchen-view">
       <section className="btn-order-kitchen">
         <button className="btn-order-kitchen-delivery" onClick={() => setPending('pending')}>PEDIDOS POR ENTREGAR</button>
-        <button className="btn-order-kitchen-send" onClick={() => setPending('delivered')}>PEDIDOS ENTREGADOS</button>
       </section>
 
       <div>

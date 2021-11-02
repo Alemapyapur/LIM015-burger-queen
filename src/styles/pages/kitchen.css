@@ -93,7 +93,7 @@
 
 .btn-kitchen-send-order{
   border:none;
-  background-color: green;
+  background-color: grey;
   font-weight: bolder;
   color:white;
   font-size: 16px;
@@ -104,7 +104,7 @@
 .card-order-container {
   border-radius: 15px;
   padding: 20px;
-  height: 250px;
+  height: 350px;
   background-color: #efb953;
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
 }
