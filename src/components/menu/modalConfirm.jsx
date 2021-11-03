@@ -20,7 +20,7 @@ const ModalConfirm = ({name, table, setData, totalOrder, pedido, setName,setTabl
                 <h5 className="text-modal">¿Deseas enviar el pedido?</h5>
                 <section className="butons-modal">
                     <button className="buttonCancel" onClick={toggle}>Cancelar</button>
-                    <SendOrder name={name}  setData={setData} table={table} totalOrder={totalOrder} pedido={pedido} setName={setName} setTable={setTable} setPedido={setPedido}/>
+                    <SendOrder name={name} setData={setData} table={table} totalOrder={totalOrder} pedido={pedido} setName={setName} setTable={setTable} setPedido={setPedido} toggle={toggle}/>
                 </section>
             </Modal>
         </>

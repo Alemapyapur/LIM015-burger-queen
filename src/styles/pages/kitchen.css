@@ -93,12 +93,14 @@
 
 .btn-kitchen-send-order{
   border:none;
-  background-color: grey;
   font-weight: bolder;
   color:white;
   font-size: 16px;
   border-radius: 15px;
   text-align: center;
+  background-color: #31ac0c;
+  width: -webkit-fill-available;
+  padding: 5px;
 }
 
 .card-order-container {
