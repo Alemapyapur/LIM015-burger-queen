@@ -3,7 +3,7 @@ import { collection, addDoc } from "firebase/firestore";
 import { db } from "./fb-config";
 import "./styles/menu/modalCancel.css"
 
-function SendOrder({ name, table, totalOrder, pedido}) {
+function SendOrder({ name, table, totalOrder, pedido, setName,setTable, setPedido }) {
 
   const sendOrders = () => {
     const docRef = addDoc(collection(db, "orders"), {
@@ -14,7 +14,9 @@ function SendOrder({ name, table, totalOrder, pedido}) {
       order: totalOrder,
       timestamp: new Date()
     }).then(() => {
-      alert("Se envio el pedido")
+      setPedido([]);
+      setName('');
+      setTable('');
     });
     return docRef
   }

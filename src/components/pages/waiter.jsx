@@ -24,17 +24,9 @@ function Waiter() {
       <div className="padre">
         <section className="section-side-left">
           <div className="box-client-table">
-            {/* <section className="dataClient">
-              <p className="dataClient-text">NOMBRE DEL CLIENTE:</p>
-              <input type="text" className="name-box" value={name} onChange={(e) => { setName(e.target.value) }} />
-            </section>
-            <section className="dataClient">
-              <p className="dataClient-text">NUMERO DE MESA:</p>
-              <input type="text" className="name-box" value={table} onChange={(e) => { setTable(e.target.value) }} />
-            </section> */}
             <ClientData name={name} setName={setName} table={table} setTable={setTable} />
           </div>
-          <OrderWaiter setPedido={setPedido} pedido={pedido} name={name} table={table} />
+          <OrderWaiter setPedido={setPedido} pedido={pedido} name={name} table={table} setName={setName} setTable={setTable}/>
         </section>
         {/* <section className="btn-send-order">
           <ModalCancel />
