@@ -228,8 +228,6 @@
 
 .btn-order {
   grid-area: btn-order;
-  /* justify-items:start ; */
-  /* margin-left: 10px; */
   display: flex;
   justify-content: space-between;
 }
