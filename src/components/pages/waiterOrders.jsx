@@ -1,47 +1,53 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import Navigation from '../nav-footer/navigation'
 import { db } from "../../fb-config";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs, query, where, doc, updateDoc } from "firebase/firestore";
 import Footer from '../nav-footer/footer'
 
 function WaiterOrders() {
 
   const [arrayOrderList, setArrayOrderList] = useState([]);
-  const [pending, setPending] = useState("ready");
+  const [status, setStatus] = useState("ready");
 
   const getOrdersFirebase = async (status) => {
     const arrayProduct = [];
     const querySnapshot = await getDocs(query(collection(db, "orders"), where("status", "==", status)));
     querySnapshot.forEach((doc) => {
-      arrayProduct.push(doc.data());
+      arrayProduct.push({ id: doc.id, ...doc.data() });
     });
     return arrayProduct;
   };
 
+  async function EntregarACliente(id) {
+    const ref = doc(db, "orders", id)
+    await updateDoc(ref, { status: 'delivered' })
+
+    setStatus("delivered")
+  }
 
   useEffect(() => {
     async function fetchList() {
-      const listMenu = await getOrdersFirebase(pending);
+      const listMenu = await getOrdersFirebase(status);
       // console.log(listMenu);
       setArrayOrderList(listMenu);
     }
     fetchList();
-  }, [pending]);
-  
+  }, [status]);
+
   return (
     <div>
       <Navigation />
       <section className="kitchen-view">
         <section className="btn-order-kitchen">
-          <button className="btn-order-kitchen-delivery" onClick={() => setPending('ready')}>PEDIDOS POR ENTREGAR</button>
-          <button className="btn-order-kitchen-send" onClick={() => setPending('delivered')}>PEDIDOS ENTREGADOS</button>
+          <button className="btn-order-kitchen-delivery" onClick={() => setStatus('ready')}>PEDIDOS POR ENTREGAR</button>
+          <button className="btn-order-kitchen-send" onClick={() => setStatus('delivered')}>PEDIDOS ENTREGADOS</button>
         </section>
 
-        <div>
+        <div className="card-order">
           {arrayOrderList.map((item, index) => {
 
             return (
-              <section className="card-order">
+              <section >
                 <section key={item.id} className="card-order-container">
                   <p className="nombre-kitchen">Cliente: {item.name}</p>
                   {/* <p className="text-order">Hora: {item.timestamp}</p> */}
@@ -73,9 +79,14 @@ function WaiterOrders() {
                     <section className="table-kitchen-total">
                       TOTAL: S/ {item.order}
                     </section>
-                    <button className="btn-kitchen-send-order" >
-                      ✔️
-                    </button>
+                    {item.status === 'ready' && (
+                      <button type="button" className="btn-kitchen-send-order" onClick={() => EntregarACliente(item.id)}>
+                        LISTO PARA ENTREGAR
+                      </button>
+                    )}
+                    {item.status === 'delivered' && (
+                      <p >El pedido fue entregado con exito 🛒</p>
+                    )}
                   </section>
                 </section>
               </section>
