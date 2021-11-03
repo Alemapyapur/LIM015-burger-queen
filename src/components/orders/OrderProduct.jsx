@@ -51,7 +51,7 @@ export default function OrderProduct({ setPedido, pedido }) {
             <div className="order-container" >
               <p className="text-order">S/ {item.price}.00</p>
               <img className="img-product" alt='img-burguerqueen' src={item.URL}></img>
-              <p className="text-order">{item.name}</p>
+              <p className="text-order2">{item.name}</p>
               <div className="btn--order">
                 <section><AddProducts productList={productList} setPedido={setPedido} pedido={pedido} /></section>
               </div>
