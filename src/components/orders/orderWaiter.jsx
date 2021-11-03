@@ -3,7 +3,7 @@ import "../../styles/pages/waiter.css";
 import ModalCancel from "../menu/modalCancel";
 import ModalConfirm from "../menu/modalConfirm";
 
-export default function OrderWaiter({ setPedido, pedido, name, table }) {
+export default function OrderWaiter({ setPedido, pedido, name, table, setName,setTable }) {
   const totalValue = pedido.reduce((accumulator, value) => accumulator + Number(value.precio) * Number(value.count), 0)
   const totalOrder = totalValue.toFixed(2);
 
@@ -58,7 +58,7 @@ export default function OrderWaiter({ setPedido, pedido, name, table }) {
       {/* <input type= "text " /> */}
       <section className="btn-send-order">
         <ModalCancel />
-        <ModalConfirm name={name} table={table} totalOrder={totalOrder} pedido={pedido} />
+        <ModalConfirm name={name} table={table} totalOrder={totalOrder} pedido={pedido} setName={setName} setTable={setTable} setPedido={setPedido}/>
       </section>
     </section>
   );
