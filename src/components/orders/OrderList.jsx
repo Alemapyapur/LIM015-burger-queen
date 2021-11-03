@@ -22,9 +22,9 @@ export default function OrderList({ setPedido, pedido }) {
 
   async function EntregarAMesa(id) {
     const ref = doc(db, "orders", id)
-    await updateDoc(ref, { status: 'delivered' })
+    await updateDoc(ref, { status: 'ready' })
     
-    setPending("delivered")
+    setPending("ready")
   }
 
 
@@ -39,15 +39,11 @@ export default function OrderList({ setPedido, pedido }) {
 
   return (
     <section className="kitchen-view">
-      {/* <section className="btn-order-kitchen">
-        <button className="btn-order-kitchen-delivery" onClick={() => setPending('pending')}>PEDIDOS POR ENTREGAR</button>
-      </section> */}
-
-      <div>
+      <div className="card-order">
         {arrayOrderList.map((item, index) => {
           console.log(item)
           return (
-            <section className="card-order">
+            <section >
               <section key={item.id} className="card-order-container">
                 <p className="nombre-kitchen">Cliente: {item.name}</p>
                 <p className="text-order">Hora: {item.timestamp.toDate().getHours()}{':'}{item.timestamp.toDate().getMinutes()}</p>
@@ -80,7 +76,7 @@ export default function OrderList({ setPedido, pedido }) {
                     TOTAL: S/ {item.order}
                   </section>
                   <button className="btn-kitchen-send-order" onClick={() => EntregarAMesa(item.id)} >
-                    LISTO PARA ENTREGAR
+                    PEDIDO LISTO
                   </button>
                 </section>
               </section>
