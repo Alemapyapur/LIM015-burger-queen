@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-// import { Stack, Container, Form, Button } from "react-bootstrap";
 import app from "../../fb-config";
 import {
   getAuth,
@@ -33,11 +32,9 @@ const Logueo = () => {
 
   }
 
-
   return (
     <Fragment>
       <div className='login-page'>
-        {/* <h1>{"INICIA SESIÓN"}</h1> */}
         <img src={imagenLogo} alt="" className='imagenLogo' />
         <form onSubmit={submitHandler} className="bodyContainer">
           <section className="mb-3" >

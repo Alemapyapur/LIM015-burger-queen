@@ -39,13 +39,12 @@ export default function OrderProduct({ setPedido, pedido }) {
       </section>
 
       <div className="order-container-list">
-        {arrayProductList.map((item, index) => {
-          //console.log('type', type);
+        {arrayProductList.map((item, index) => {          
           const productList = {
-            id:item.id,
+            id: item.id,
             nombre: item.name,
             precio: item.price,
-            count:0
+            count: 0
           }
           return (
             <div className="order-container" >

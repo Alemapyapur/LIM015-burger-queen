@@ -28,7 +28,6 @@ function WaiterOrders() {
   useEffect(() => {
     async function fetchList() {
       const listMenu = await getOrdersFirebase(status);
-      // console.log(listMenu);
       setArrayOrderList(listMenu);
     }
     fetchList();

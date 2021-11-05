@@ -8,7 +8,7 @@ function NotFound() {
       <div className="nf-msg">
         <p className="msg-nf">Estas perdido?</p>
         <p className="msg-home">
-            Página no encontrada, ve a
+          Página no encontrada, ve a
           <Link to="/Home">
             <span className="nf-home"> Home</span>
           </Link>
