@@ -42,3 +42,50 @@ body {
   border: none;
   color: white;
 }
+
+@media only screen and (max-width: 920px) and (min-width: 600px){
+
+  .inputPassword {
+    margin-left: 5px;
+  }
+
+  .login-page{
+    height: 420px;
+    flex-direction: column;
+  }
+  
+  .imagenLogo {
+    width: 100px;
+    margin-top: -50px;
+  }
+
+  .labelInicio {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .buttonSubmit{
+    margin-top: 20px;
+  }
+  
+  .bodyContainer{
+    margin-top: 40px;
+  }
+}
+
+@media only screen and (max-width: 599px) and (min-width: 350px){
+
+  .login-page {
+    margin: 160px 9% 160px 9%;
+  }
+  .imagenLogo {
+    width: 0px;
+  }
+  .inputPassword {
+    margin-left: 5px;
+  }
+  .buttonSubmit{
+    margin-right: 40px;
+  }
+  
+}
