@@ -3,7 +3,7 @@ import { collection, addDoc } from "firebase/firestore";
 import { db } from "./fb-config";
 import "./styles/menu/modalCancel.css"
 
-function SendOrder({ name, table, totalOrder, pedido, setName, setTable, setPedido, toggle }) {
+export default function SendOrder({ name, table, totalOrder, pedido, setName, setTable, setPedido, toggle }) {
 
   const sendOrders = () => {
     const docRef = addDoc(collection(db, "orders"), {
@@ -25,5 +25,3 @@ function SendOrder({ name, table, totalOrder, pedido, setName, setTable, setPedi
     <button onClick={() => sendOrders() && toggle()} className="buttonAccept">Enviar</button>
   )
 }
-
-export default SendOrder;

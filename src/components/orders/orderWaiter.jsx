@@ -56,7 +56,7 @@ export default function OrderWaiter({ setPedido, pedido, name, table, setName, s
         Total: S/ {totalOrder}
       </section>
       <section className="btn-send-order">
-        <ModalCancel />
+        <ModalCancel name={name} table={table} totalOrder={totalOrder} pedido={pedido} setName={setName} setTable={setTable} setPedido={setPedido}/>
         <ModalConfirm name={name} table={table} totalOrder={totalOrder} pedido={pedido} setName={setName} setTable={setTable} setPedido={setPedido} />
       </section>
     </section>
