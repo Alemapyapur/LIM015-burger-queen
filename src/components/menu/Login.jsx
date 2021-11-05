@@ -12,7 +12,7 @@ function Login() {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (usuarioFirebase) => {
       if (usuarioFirebase) {
-        //código en caso de que haya sesión inciiada
+        //código en caso de que haya sesión iniciada
         setUsuarioGlobal(usuarioFirebase);
       } else {
         //código en caso de que no haya sesión iniciada
@@ -23,16 +23,6 @@ function Login() {
       unsubscribe();
     }
   },[])
-
-//   onAuthStateChanged(auth, (usuarioFirebase) => {
-//     if (usuarioFirebase) {
-//       //código en caso de que haya sesión inciiada
-//       setUsuarioGlobal(usuarioFirebase);
-//     } else {
-//       //código en caso de que no haya sesión iniciada
-//       setUsuarioGlobal(null);
-//     }
-//   });
 
   return (
     <>

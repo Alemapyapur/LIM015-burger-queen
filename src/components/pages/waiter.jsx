@@ -5,9 +5,6 @@ import Footer from "../nav-footer/footer";
 import OrderWaiter from "../orders/orderWaiter";
 import "../../styles/pages/waiter.css";
 import ClientData from "../orders/ClientData";
-// import ModalCancel from "../menu/modalCancel";
-// import ModalConfirm from "../menu/modalConfirm";
-
 
 function Waiter() {
   const [pedido, setPedido] = useState([]);
@@ -26,12 +23,8 @@ function Waiter() {
           <div className="box-client-table">
             <ClientData name={name} setName={setName} table={table} setTable={setTable} />
           </div>
-          <OrderWaiter setPedido={setPedido} pedido={pedido} name={name} table={table} setName={setName} setTable={setTable}/>
+          <OrderWaiter setPedido={setPedido} pedido={pedido} name={name} table={table} setName={setName} setTable={setTable} />
         </section>
-        {/* <section className="btn-send-order">
-          <ModalCancel />
-          <ModalConfirm name={name} table={table} />
-        </section> */}
         <section>
           <OrderProduct setPedido={setPedido} pedido={pedido} />
         </section>

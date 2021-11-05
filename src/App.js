@@ -1,5 +1,4 @@
 import './App.css';
-// import React, { useState, useEffect } from "react";
 import React from "react";
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Home from './components/pages/home.jsx'
@@ -10,19 +9,17 @@ import NotFound from './components/pages/notFound';
 import Login from './components/menu/Login';
 import WaiterOrders from './components/pages/waiterOrders';
 
-
-
 const App = () => {
 
   return (
     <BrowserRouter>
-      <Switch>   
-      <Route exact path='/'>
+      <Switch>
+        <Route exact path='/'>
           <Login />
         </Route>
         <Route exact path='/Home'>
           <Home />
-        </Route>     
+        </Route>
         <Route exact path='/Kitchen'>
           <Kitchen />
         </Route>

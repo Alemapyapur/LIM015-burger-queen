@@ -13,9 +13,7 @@ function Kitchen() {
       <>
         <NavBar />
       </>
-
-    < OrderList/>
-
+      < OrderList />
       <div>
         <Footer />
       </div>

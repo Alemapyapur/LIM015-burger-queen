@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { db } from "../../fb-config";
 import { collection, getDocs, query, where, doc, updateDoc } from "firebase/firestore";
-// import AddProducts from './addProducts'
 import "../../styles/pages/waiter.css";
 
 
@@ -14,7 +13,7 @@ export default function OrderList({ setPedido, pedido }) {
     const arrayProduct = [];
     const querySnapshot = await getDocs(query(collection(db, "orders"), where("status", "==", status)));
     querySnapshot.forEach((doc) => {
-      arrayProduct.push({id: doc.id, ...doc.data() });
+      arrayProduct.push({ id: doc.id, ...doc.data() });
     });
     return arrayProduct;
   };
@@ -23,7 +22,7 @@ export default function OrderList({ setPedido, pedido }) {
   async function EntregarAMesa(id) {
     const ref = doc(db, "orders", id)
     await updateDoc(ref, { status: 'ready' })
-    
+
     setPending("ready")
   }
 
@@ -31,7 +30,6 @@ export default function OrderList({ setPedido, pedido }) {
   useEffect(() => {
     async function fetchList() {
       const listMenu = await getOrdersFirebase(pending);
-      // console.log(listMenu);
       setArrayOrderList(listMenu);
     }
     fetchList();
