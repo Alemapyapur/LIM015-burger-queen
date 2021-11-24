@@ -1,11 +1,12 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Burger Queen",
+  "name": "Burger Queen",
+  "description": "Es una aplicación web hecha en React que funciona como un sistema de pedidos(orden, cocina y entrega) de restaurantes.",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "logo64.png",
+      "type": "image/png",
+      "sizes": "64x64"
     },
     {
       "src": "logo192.png",
